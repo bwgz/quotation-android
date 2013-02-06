@@ -14,10 +14,11 @@
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
-
 <resources>
-    <string name="app_name">Quote Of The Day</string>
-  
-    <string name="widget_name">Quote of the Day</string>
-    <string name="qotd_widget_description">Quote Of The Day</string>
+    <string name="display_item_title">Display</string>
+    <string name="display_item_description">General information about a display, such as its size, density, and font scaling</string>
+    <string name="os_item_title">OS</string>
+    <string name="os_item_description">Information about the current build, extracted from system properties</string>
+    <string name="system_item_title">System</string>
+    <string name="system_item_description">System related information</string>
 </resources>

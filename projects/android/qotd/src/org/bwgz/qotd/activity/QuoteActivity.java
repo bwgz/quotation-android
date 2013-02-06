@@ -16,11 +16,16 @@
 
 package org.bwgz.qotd.activity;
 
+import org.bwgz.android.developer.DeveloperActivity;
 import org.bwgz.qotd.R;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class QuoteActivity extends Activity {
@@ -37,5 +42,25 @@ public class QuoteActivity extends Activity {
         
         TextView textView = (TextView)findViewById(R.id.quote);
         textView.setText(qotd);
+    }
+    
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home || item.getItemId() == 0) {
+            return false;
+        }
+        if (item.getItemId() == R.id.developer) {
+    	    Intent intent = new Intent(this, DeveloperActivity.class);
+    	    startActivity(intent);
+    	}
+        
+        return true;
     }
 }
