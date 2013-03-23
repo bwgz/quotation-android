@@ -12,6 +12,7 @@
 	
 	<modules>
 		<module>android</module>
+		<module>freebase</module>
 	</modules>
 	
 	<properties>

@@ -16,7 +16,13 @@
 
 package org.bwgz.qotd.application;
 
+import org.bwgz.quotation.content.provider.QuotationAccount;
+import org.bwgz.quotation.content.provider.QuotationContract;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
 import android.app.Application;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
@@ -26,19 +32,26 @@ public class QuoteApplication extends Application {
 	
 	static public String APPLICATION_PREFERENCES	= "application.preferences";
 	static public String PREFERENCE_INITIALIZED		= "application.initialized";
-	
+
 	@Override
-	public  void onCreate() {
+	public void onCreate() {
 		super.onCreate();
     	Log.d(TAG, String.format("onCreate"));
 		
 		SharedPreferences preferences = getSharedPreferences(APPLICATION_PREFERENCES, Context.MODE_PRIVATE);
 
 		if (preferences.getBoolean(PREFERENCE_INITIALIZED, false) == false) {
-		        
-			preferences.edit().putBoolean(PREFERENCE_INITIALIZED, true);
+	        Account account = new QuotationAccount();
+	        AccountManager accountManager = AccountManager.get(getBaseContext());
+	        
+	        if (accountManager.addAccountExplicitly(account, null, null)) {
+	        	Log.d(TAG, String.format("added account: %s", account));
+	        	ContentResolver.setIsSyncable(account, QuotationContract.AUTHORITY, 1);
+	        	ContentResolver.setSyncAutomatically(account, QuotationContract.AUTHORITY, true);
+ 	        	
+		        preferences.edit().putBoolean(PREFERENCE_INITIALIZED, true);
+		        preferences.edit().commit();
+	        }
 		}
-		
-		preferences.edit().commit();
 	}
 }

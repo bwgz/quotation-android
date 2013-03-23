@@ -16,38 +16,40 @@
 
 package org.bwgz.qotd.widget;
 
-import org.bwgz.qotd.R;
-import org.bwgz.qotd.activity.QuoteActivity;
+import org.bwgz.qotd.service.QuoteOfTheDayService;
 
-import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.RemoteViews;
 
 public class QuoteWidgetProvider extends AppWidgetProvider {
     static private String TAG = QuoteWidgetProvider.class.getSimpleName();
+   
+    @Override
+    public void onEnabled(Context context) {
+        Log.d(TAG, String.format("onEnabled  - context %s", context));
+    }
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         Log.d(TAG, String.format("onUpdate - context %s  appWidgetManager: %s  appWidgetIds: %s", context, appWidgetManager, appWidgetIds));
 
-        ComponentName thisWidget = new ComponentName(context, QuoteWidgetProvider.class);
-        int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
-        for (int widgetId : allWidgetIds) {
-          RemoteViews remoteViews = new RemoteViews(context.getPackageName(), R.layout.widget_quote);
-          remoteViews.setTextViewText(R.id.quote, QuoteActivity.qotd);
-
-          Intent intent = new Intent(context, QuoteActivity.class);
-          PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-
-          remoteViews.setOnClickPendingIntent(R.id.widget, pendingIntent);
-
-          appWidgetManager.updateAppWidget(widgetId, remoteViews);
-        }
+        Intent intent = new Intent(context, QuoteOfTheDayService.class);
+        intent.putExtra(QuoteOfTheDayService.APP_WIDGET_IDS, appWidgetIds);
+        context.startService(intent);
     }
     
+    @Override
+    public void onDeleted(Context context, int[] appWidgetIds) {
+        Log.d(TAG, String.format("onDeleted - context %s  appWidgetIds: %s", context, appWidgetIds));
+    }
+
+    @Override
+    public void onDisabled (Context context) {
+        Log.d(TAG, String.format("onDisabled   - context %s", context));
+        
+        context.stopService(new Intent(context, QuoteOfTheDayService.class));
+    }
 }
