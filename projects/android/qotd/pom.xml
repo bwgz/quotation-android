@@ -27,6 +27,17 @@
             <version>${android-version}</version>
             <scope>provided</scope>
         </dependency>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>support-v4</artifactId>
+			<version>${android-support-v4-version}</version>
+		</dependency>
+        <dependency>
+            <groupId>org.bwgz.quotation</groupId>
+            <artifactId>library</artifactId>
+            <version>1.0</version>
+			<type>apklib</type>
+        </dependency>
    	</dependencies>
   
     <build>

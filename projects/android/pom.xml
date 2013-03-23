@@ -16,11 +16,14 @@
 	<packaging>pom</packaging>
 	
 	<modules>
+		<module>support</module>
 		<module>developer</module>
 		<module>qotd</module>
 	</modules>
 	
 	<properties>
+        <android-support-v4-version>r13</android-support-v4-version>
 		<android-sdk-path>C:/Progra~1/Android/android-sdk</android-sdk-path>
 	</properties>
+	
 </project>
