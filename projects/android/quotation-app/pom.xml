@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<name>Quotation Android App</name>
+
+	<parent>
+		<groupId>org.bwgz.quotation</groupId>
+		<artifactId>android</artifactId>
+		<version>1.0.0-BETA</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<artifactId>quotation-app</artifactId>
+	<packaging>apk</packaging>
+
+	<properties>
+		<google-android-annotations-version>4.1.1.4</google-android-annotations-version>
+		<actionbarsherlock-version>4.3.0</actionbarsherlock-version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.bwgz.android</groupId>
+			<artifactId>org-bwgz-android-common</artifactId>
+            <version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bwgz.android</groupId>
+			<artifactId>org-bwgz-android-environment</artifactId>
+            <version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.bwgz.quotation</groupId>
+			<artifactId>quotation-content-provider</artifactId>
+            <version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>annotations</artifactId>
+			<version>${google-android-annotations-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.actionbarsherlock</groupId>
+			<artifactId>actionbarsherlock</artifactId>
+			<version>${actionbarsherlock-version}</version>
+			<type>apklib</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<version>${android-maven-plugin-version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<genDirectory>${project.basedir}/gen</genDirectory>
+					<sdk>
+						<platform>${android-platform}</platform>
+						<path>${android-sdk-path}</path>
+					</sdk>
+					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jarsigner-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>signing</id>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+						<phase>package</phase>
+						<inherited>true</inherited>
+						<configuration>
+							<removeExistingSignatures>true</removeExistingSignatures>
+							<includes>
+								<include>**/*.apk</include>
+							</includes>
+							<keystore>${sign.keystore}</keystore>
+							<storepass>${sign.storepass}</storepass>
+							<keypass>${sign.keypass}</keypass>
+							<alias>org.bwgz.quotation</alias>
+							<arguments>
+								<argument>-sigalg</argument>
+								<argument>MD5withRSA</argument>
+								<argument>-digestalg</argument>
+								<argument>SHA1</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>${maven-eclipse-plugin-version}</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+					<projectnatures>
+						<projectnature>org.eclipse.jdt.core.javanature</projectnature>
+						<projectnature>com.android.ide.eclipse.adt.AndroidNature</projectnature>
+					</projectnatures>
+
+					<buildcommands>
+						<buildcommand>org.eclipse.jdt.core.javabuilder</buildcommand>
+						<buildcommand>com.android.ide.eclipse.adt.ResourceManagerBuilder</buildcommand>
+						<buildcommand>com.android.ide.eclipse.adt.PreCompilerBuilder</buildcommand>
+						<buildcommand>com.android.ide.eclipse.adt.ApkBuilder</buildcommand>
+					</buildcommands>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

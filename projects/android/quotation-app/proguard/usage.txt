@@ -1,0 +1,616 @@
+android.support.v4.accessibilityservice.AccessibilityServiceInfoCompatIcs:
+    26:26:AccessibilityServiceInfoCompatIcs()
+android.support.v4.content.AsyncTaskLoader:
+    static final java.lang.String TAG
+    static final boolean DEBUG
+android.support.v4.content.LocalBroadcastManager:
+    private static final java.lang.String TAG
+    private static final boolean DEBUG
+    static final int MSG_EXEC_PENDING_BROADCASTS
+android.support.v4.content.ModernAsyncTask:
+    private static final java.lang.String LOG_TAG
+    private static final int CORE_POOL_SIZE
+    private static final int MAXIMUM_POOL_SIZE
+    private static final int KEEP_ALIVE
+    private static final int MESSAGE_POST_RESULT
+    private static final int MESSAGE_POST_PROGRESS
+    106:107:public static void init()
+    111:112:public static void setDefaultExecutor(java.util.concurrent.Executor)
+    169:169:public final android.support.v4.content.ModernAsyncTask$Status getStatus()
+    321:321:public final java.lang.Object get()
+    341:341:public final java.lang.Object get(long,java.util.concurrent.TimeUnit)
+    371:371:public final varargs android.support.v4.content.ModernAsyncTask execute(java.lang.Object[])
+    433:434:public static void execute(java.lang.Runnable)
+    451:455:protected final varargs void publishProgress(java.lang.Object[])
+android.support.v4.os.ParcelableCompatCreatorHoneycombMR2Stub:
+    22:22:ParcelableCompatCreatorHoneycombMR2Stub()
+android.support.v4.util.TimeUtils:
+    private static final int SECONDS_PER_MINUTE
+    private static final int SECONDS_PER_HOUR
+    private static final int SECONDS_PER_DAY
+android.support.v4.view.AccessibilityDelegateCompatIcs:
+    28:30:AccessibilityDelegateCompatIcs()
+android.support.v4.view.KeyEventCompat$BaseKeyEventVersionImpl:
+    private static final int META_MODIFIER_MASK
+    private static final int META_ALL_MASK
+android.support.v4.view.KeyEventCompatHoneycomb:
+    24:24:KeyEventCompatHoneycomb()
+android.support.v4.view.MenuItemCompatHoneycomb:
+    25:25:MenuItemCompatHoneycomb()
+android.support.v4.view.MotionEventCompatEclair:
+    24:24:MotionEventCompatEclair()
+android.support.v4.view.PagerTitleStrip:
+    private static final java.lang.String TAG
+    private static final int SIDE_ALPHA
+    private static final int TEXT_SPACING
+android.support.v4.view.VelocityTrackerCompatHoneycomb:
+    24:24:VelocityTrackerCompatHoneycomb()
+android.support.v4.view.ViewCompatGingerbread:
+    21:21:ViewCompatGingerbread()
+android.support.v4.view.ViewCompatICS:
+    27:27:ViewCompatICS()
+android.support.v4.view.ViewConfigurationCompatFroyo:
+    24:24:ViewConfigurationCompatFroyo()
+android.support.v4.view.ViewGroupCompatIcs:
+    26:26:ViewGroupCompatIcs()
+android.support.v4.view.ViewPager:
+    private static final java.lang.String TAG
+    private static final boolean DEBUG
+    private static final boolean USE_CACHE
+    private static final int DEFAULT_OFFSCREEN_PAGES
+    private static final int MAX_SETTLE_DURATION
+    private static final int MIN_DISTANCE_FOR_FLING
+    private static final int INVALID_POINTER
+    596:597:void smoothScrollTo(int,int)
+android.support.v4.view.accessibility.AccessibilityEventCompatIcs:
+    25:25:AccessibilityEventCompatIcs()
+android.support.v4.view.accessibility.AccessibilityManagerCompat$AccessibilityManagerIcsImpl:
+    120:120:public boolean isTouchExplorationEnabled(android.view.accessibility.AccessibilityManager)
+android.support.v4.view.accessibility.AccessibilityManagerCompat$AccessibilityManagerStubImpl:
+    74:74:public boolean isTouchExplorationEnabled(android.view.accessibility.AccessibilityManager)
+android.support.v4.view.accessibility.AccessibilityManagerCompat$AccessibilityManagerVersionImpl:
+    public abstract boolean isTouchExplorationEnabled(android.view.accessibility.AccessibilityManager)
+android.support.v4.view.accessibility.AccessibilityManagerCompatIcs:
+    28:30:AccessibilityManagerCompatIcs()
+    67:67:public static boolean isTouchExplorationEnabled(android.view.accessibility.AccessibilityManager)
+android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityNodeInfoIcsImpl:
+    421:422:public void setBoundsInScreen(java.lang.Object,android.graphics.Rect)
+android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityNodeInfoImpl:
+    public abstract void setBoundsInScreen(java.lang.Object,android.graphics.Rect)
+android.support.v4.view.accessibility.AccessibilityNodeInfoCompat$AccessibilityNodeInfoStubImpl:
+    202:202:public void setBoundsInScreen(java.lang.Object,android.graphics.Rect)
+android.support.v4.view.accessibility.AccessibilityNodeInfoCompatIcs:
+    28:28:AccessibilityNodeInfoCompatIcs()
+    69:69:public static java.lang.Object getChild(java.lang.Object,int)
+    89:89:public static java.lang.Object getParent(java.lang.Object)
+    149:150:public static void setBoundsInScreen(java.lang.Object,android.graphics.Rect)
+android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordIcsImpl:
+    301:301:public int getMaxScrollX(java.lang.Object)
+    306:306:public int getMaxScrollY(java.lang.Object)
+    408:408:public void setMaxScrollX(java.lang.Object,int)
+    413:413:public void setMaxScrollY(java.lang.Object,int)
+android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordImpl:
+    public abstract int getMaxScrollX(java.lang.Object)
+    public abstract void setMaxScrollX(java.lang.Object,int)
+    public abstract int getMaxScrollY(java.lang.Object)
+    public abstract void setMaxScrollY(java.lang.Object,int)
+android.support.v4.view.accessibility.AccessibilityRecordCompat$AccessibilityRecordStubImpl:
+    118:118:public int getMaxScrollX(java.lang.Object)
+    122:122:public int getMaxScrollY(java.lang.Object)
+    223:223:public void setMaxScrollX(java.lang.Object,int)
+    227:227:public void setMaxScrollY(java.lang.Object,int)
+android.support.v4.view.accessibility.AccessibilityRecordCompatIcs:
+    28:28:AccessibilityRecordCompatIcs()
+android.support.v4.widget.EdgeEffectCompatIcs:
+    28:28:EdgeEffectCompatIcs()
+android.support.v4.widget.SearchViewCompat:
+    91:93:private SearchViewCompat(android.content.Context)
+android.support.v4.widget.SearchViewCompatHoneycomb:
+    27:29:SearchViewCompatHoneycomb()
+com.fasterxml.jackson.core.Base64Variant:
+    static final char PADDING_CHAR_NONE
+com.fasterxml.jackson.core.Base64Variants:
+    static final java.lang.String STD_BASE64_ALPHABET
+com.fasterxml.jackson.core.JsonParser:
+    private static final int MIN_BYTE_I
+    private static final int MAX_BYTE_I
+    private static final int MIN_SHORT_I
+    private static final int MAX_SHORT_I
+com.fasterxml.jackson.core.base.ParserBase:
+    static final long MIN_INT_L
+    static final long MAX_INT_L
+    static final double MIN_LONG_D
+    static final double MAX_LONG_D
+    static final double MIN_INT_D
+    static final double MAX_INT_D
+com.fasterxml.jackson.core.io.JsonStringEncoder:
+    private static final int SURR1_FIRST
+    private static final int SURR1_LAST
+    private static final int SURR2_FIRST
+    private static final int SURR2_LAST
+    private static final int INT_BACKSLASH
+    private static final int INT_U
+    private static final int INT_0
+com.fasterxml.jackson.core.io.NumberInput:
+    static final long L_BILLION
+com.fasterxml.jackson.core.io.NumberOutput:
+    private static final char NULL_CHAR
+com.fasterxml.jackson.core.io.UTF8Writer:
+    static final int SURR1_FIRST
+    static final int SURR1_LAST
+    static final int SURR2_FIRST
+    static final int SURR2_LAST
+com.fasterxml.jackson.core.json.ByteSourceJsonBootstrapper:
+    static final byte UTF8_BOM_1
+    static final byte UTF8_BOM_2
+    static final byte UTF8_BOM_3
+com.fasterxml.jackson.core.json.UTF8JsonGenerator:
+    private static final byte BYTE_u
+    private static final byte BYTE_0
+    private static final byte BYTE_LBRACKET
+    private static final byte BYTE_RBRACKET
+    private static final byte BYTE_LCURLY
+    private static final byte BYTE_RCURLY
+    private static final byte BYTE_BACKSLASH
+    private static final byte BYTE_COMMA
+    private static final byte BYTE_COLON
+    private static final byte BYTE_QUOTE
+    private static final int MAX_BYTES_TO_BUFFER
+com.fasterxml.jackson.core.json.UTF8StreamJsonParser:
+    static final byte BYTE_LF
+com.fasterxml.jackson.core.sym.BytesToNameCanonicalizer:
+    static final int MAX_ENTRIES_FOR_REUSE
+    static final int MAX_COLL_CHAIN_LENGTH
+    static final int MAX_COLL_CHAIN_FOR_REUSE
+    static final int MIN_HASH_SIZE
+    static final int INITIAL_COLLISION_LEN
+    static final int LAST_VALID_BUCKET
+    private static final int MULT
+    private static final int MULT2
+    private static final int MULT3
+com.fasterxml.jackson.core.sym.CharsToNameCanonicalizer:
+    static final int MAX_ENTRIES_FOR_REUSE
+    static final int MAX_COLL_CHAIN_LENGTH
+    static final int MAX_COLL_CHAIN_FOR_REUSE
+com.fasterxml.jackson.core.util.ByteArrayBuilder:
+    private static final int INITIAL_BLOCK_SIZE
+    private static final int MAX_BLOCK_SIZE
+    static final int DEFAULT_BLOCK_ARRAY_SIZE
+com.fasterxml.jackson.core.util.DefaultPrettyPrinter$Lf2SpacesIndenter:
+    static final int SPACE_COUNT
+com.fasterxml.jackson.core.util.InternCache:
+    private static final int MAX_ENTRIES
+com.fasterxml.jackson.core.util.TextBuffer:
+    static final int MIN_SEGMENT_LEN
+    static final int MAX_SEGMENT_LEN
+com.google.api.client.auth.oauth2.BearerToken:
+    static final java.lang.String PARAM_NAME
+com.google.api.client.auth.oauth2.BearerToken$AuthorizationHeaderAccessMethod:
+    static final java.lang.String HEADER_PREFIX
+com.google.api.client.auth.security.PrivateKeys:
+    private static final java.lang.String BEGIN
+    private static final java.lang.String END
+com.google.api.client.googleapis.MethodOverride:
+    static final int MAX_URL_LENGTH
+com.google.api.client.googleapis.auth.clientlogin.AuthKeyValueParser:
+    46:46:public java.lang.String getContentType()
+    50:55:public java.lang.Object parse(com.google.api.client.http.HttpResponse,java.lang.Class)
+    60:92:public java.lang.Object parse(java.io.InputStream,java.lang.Class)
+com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier:
+    private static final long TIME_SKEW_SECONDS
+com.google.api.client.googleapis.batch.HttpRequestContent:
+    static final java.lang.String NEWLINE
+com.google.api.client.googleapis.json.GoogleJsonRpcHttpTransport:
+    private static final java.lang.String JSON_RPC_CONTENT_TYPE
+com.google.api.client.googleapis.media.MediaHttpUploader:
+    static final int MB
+    private static final int KB
+com.google.api.client.http.MultipartContent:
+    static final java.lang.String NEWLINE
+    private static final java.lang.String TWO_DASHES
+com.google.api.client.http.UriTemplate:
+    private static final java.lang.String COMPOSITE_NON_EXPLODE_JOINER
+com.google.api.client.http.apache.ApacheHttpResponse:
+    95:95:public java.lang.String getHeaderValue(java.lang.String)
+com.google.api.client.repackaged.org.apache.commons.codec.binary.Base64:
+    private static final int BITS_PER_ENCODED_BYTE
+    private static final int BYTES_PER_UNENCODED_BLOCK
+    private static final int BYTES_PER_ENCODED_BLOCK
+    private static final int MASK_6BITS
+com.google.api.client.repackaged.org.apache.commons.codec.binary.BaseNCodec:
+    private static final int DEFAULT_BUFFER_RESIZE_FACTOR
+    private static final int DEFAULT_BUFFER_SIZE
+    149:149:boolean hasData()
+com.google.api.client.util.ByteStreams:
+    private static final int BUF_SIZE
+com.google.api.client.util.escape.Platform:
+    21:22:private Platform()
+com.google.api.client.util.escape.UnicodeEscaper:
+    private static final int DEST_PAD
+com.google.api.client.xml.Xml:
+    static final java.lang.String TEXT_CONTENT
+com.google.api.services.freebase.Freebase$Image:
+    private static final java.lang.String REST_PATH
+com.google.api.services.freebase.Freebase$Mqlread:
+    private static final java.lang.String REST_PATH
+com.google.api.services.freebase.Freebase$Mqlwrite:
+    private static final java.lang.String REST_PATH
+com.google.api.services.freebase.Freebase$Text$Get:
+    private static final java.lang.String REST_PATH
+com.google.api.services.freebase.Freebase$Topic$Lookup:
+    private static final java.lang.String REST_PATH
+com.google.common.base.CharMatcher:
+    private static final java.lang.String ZEROES
+    private static final int DISTINCT_CHARS
+    private static final java.lang.String WHITESPACE_TABLE
+com.google.common.base.CharMatcher$FastMatcher:
+    808:809:CharMatcher$FastMatcher()
+com.google.common.base.FinalizableReferenceQueue:
+    private static final java.lang.String FINALIZER_CLASS_NAME
+com.google.common.base.FinalizableReferenceQueue$DecoupledLoader:
+    private static final java.lang.String LOADING_ERROR
+com.google.common.base.Platform:
+    28:28:private Platform()
+    32:32:static char[] charBufferFromThreadLocal()
+com.google.common.base.SmallCharMatcher:
+    static final int MAX_SIZE
+    private static final int C1
+    private static final int C2
+    private static final double DESIRED_LOAD_FACTOR
+com.google.common.base.Splitter$MapSplitter:
+    private static final java.lang.String INVALID_ENTRY_MESSAGE
+com.google.common.base.internal.Finalizer:
+    private static final java.lang.String FINALIZABLE_REFERENCE
+com.google.common.base.package-info
+com.google.common.cache.CacheBuilder:
+    private static final int DEFAULT_INITIAL_CAPACITY
+    private static final int DEFAULT_CONCURRENCY_LEVEL
+    private static final int DEFAULT_EXPIRATION_NANOS
+    private static final int DEFAULT_REFRESH_NANOS
+    static final int UNSET_INT
+com.google.common.cache.LocalCache:
+    static final int MAXIMUM_CAPACITY
+    static final int MAX_SEGMENTS
+    static final int CONTAINS_VALUE_RETRIES
+    static final int DRAIN_THRESHOLD
+    static final int DRAIN_MAX
+    321:321:boolean expires()
+    1875:1875:com.google.common.cache.LocalCache$ReferenceEntry newEntry(java.lang.Object,int,com.google.common.cache.LocalCache$ReferenceEntry)
+    1884:1885:com.google.common.cache.LocalCache$ReferenceEntry copyEntry(com.google.common.cache.LocalCache$ReferenceEntry,com.google.common.cache.LocalCache$ReferenceEntry)
+    1894:1895:com.google.common.cache.LocalCache$ValueReference newValueReference(com.google.common.cache.LocalCache$ReferenceEntry,java.lang.Object,int)
+    1920:1920:boolean isLive(com.google.common.cache.LocalCache$ReferenceEntry,long)
+    4144:4148:com.google.common.cache.LocalCache$ReferenceEntry getEntry(java.lang.Object)
+com.google.common.cache.LocalCache$EntryFactory:
+    static final int ACCESS_MASK
+    static final int WRITE_MASK
+    static final int WEAK_MASK
+com.google.common.cache.LocalCache$HashIterator:
+    public abstract java.lang.Object next()
+com.google.common.cache.LocalCache$Segment:
+    2861:2880:boolean containsValue(java.lang.Object)
+com.google.common.cache.LongAddables:
+    31:59:LongAddables()
+com.google.common.cache.LongAdder:
+    92:93:public void decrement()
+    126:127:public void reset()
+    140:153:public long sumThenReset()
+com.google.common.cache.RemovalNotification:
+    private static final long serialVersionUID
+com.google.common.cache.Striped64:
+    288:298:final void internalReset(long)
+com.google.common.cache.Striped64$Cell:
+    volatile long p0
+    volatile long p1
+    volatile long p2
+    volatile long p3
+    volatile long p4
+    volatile long p5
+    volatile long p6
+    volatile long q0
+    volatile long q1
+    volatile long q2
+    volatile long q3
+    volatile long q4
+    volatile long q5
+    volatile long q6
+com.google.common.cache.package-info
+com.google.common.collect.AbstractMapBasedMultiset:
+    297:297:private void readObjectNoData()
+com.google.common.collect.AbstractNavigableMap:
+    public abstract java.lang.Object get(java.lang.Object)
+    public abstract int size()
+com.google.common.collect.ArrayListMultimap:
+    private static final int DEFAULT_VALUES_PER_KEY
+com.google.common.collect.BoundType:
+    abstract com.google.common.collect.BoundType flip()
+com.google.common.collect.BoundType$1:
+    34:34:com.google.common.collect.BoundType flip()
+com.google.common.collect.BoundType$2:
+    43:43:com.google.common.collect.BoundType flip()
+com.google.common.collect.CartesianList:
+    41:50:static java.util.List create(java.util.List)
+com.google.common.collect.ConcurrentHashMultiset$FieldSettersHolder:
+    74:74:private ConcurrentHashMultiset$FieldSettersHolder()
+com.google.common.collect.DescendingMultiset:
+    32:32:public bridge synthetic java.util.SortedSet elementSet()
+com.google.common.collect.DiscreteDomain:
+    154:154:static com.google.common.collect.DiscreteDomain bigIntegers()
+com.google.common.collect.DiscreteDomain$BigIntegerDomain
+com.google.common.collect.EmptyImmutableTable:
+    private static final long serialVersionUID
+    124:124:java.lang.Object readResolve()
+com.google.common.collect.FluentIterable$FromIterableFunction
+com.google.common.collect.ForwardingImmutableCollection
+com.google.common.collect.ForwardingImmutableList
+com.google.common.collect.ForwardingImmutableMap
+com.google.common.collect.ForwardingImmutableSet
+com.google.common.collect.ForwardingMap$StandardEntrySet:
+    268:268:java.util.Map map()
+com.google.common.collect.GeneralRange:
+    private transient com.google.common.collect.GeneralRange reverse
+    46:52:static com.google.common.collect.GeneralRange from(com.google.common.collect.Range)
+    87:87:static com.google.common.collect.GeneralRange range(java.util.Comparator,java.lang.Object,com.google.common.collect.BoundType,java.lang.Object,com.google.common.collect.BoundType)
+    141:141:boolean isEmpty()
+    244:252:com.google.common.collect.GeneralRange reverse()
+com.google.common.collect.GenericMapMaker:
+    abstract com.google.common.collect.GenericMapMaker keyEquivalence(com.google.common.base.Equivalence)
+    abstract com.google.common.collect.GenericMapMaker maximumSize(int)
+    abstract com.google.common.collect.GenericMapMaker expireAfterWrite(long,java.util.concurrent.TimeUnit)
+    abstract com.google.common.collect.GenericMapMaker expireAfterAccess(long,java.util.concurrent.TimeUnit)
+    abstract com.google.common.collect.MapMakerInternalMap makeCustomMap()
+com.google.common.collect.GwtTransient
+com.google.common.collect.HashBiMap:
+    private static final double LOAD_FACTOR
+com.google.common.collect.HashMultimap:
+    private static final int DEFAULT_VALUES_PER_KEY
+com.google.common.collect.Hashing:
+    private static final int C1
+    private static final int C2
+    31:31:private Hashing()
+com.google.common.collect.ImmutableCollection$Builder:
+    static final int DEFAULT_INITIAL_CAPACITY
+com.google.common.collect.ImmutableMultimap$FieldSettersHolder:
+    309:309:ImmutableMultimap$FieldSettersHolder()
+com.google.common.collect.ImmutableSet:
+    static final int MAX_TABLE_SIZE
+    private static final double DESIRED_LOAD_FACTOR
+com.google.common.collect.LinkedHashMultimap:
+    private static final int DEFAULT_KEY_CAPACITY
+    private static final int DEFAULT_VALUE_SET_CAPACITY
+    static final double VALUE_SET_LOAD_FACTOR
+com.google.common.collect.Lists:
+    412:412:static java.util.List cartesianProduct(java.util.List)
+    472:472:static varargs java.util.List cartesianProduct(java.util.List[])
+com.google.common.collect.Lists$1:
+    private static final long serialVersionUID
+com.google.common.collect.Lists$2:
+    private static final long serialVersionUID
+com.google.common.collect.MapMaker:
+    private static final int DEFAULT_INITIAL_CAPACITY
+    private static final int DEFAULT_CONCURRENCY_LEVEL
+    private static final int DEFAULT_EXPIRATION_NANOS
+    static final int UNSET_INT
+    108:108:bridge synthetic com.google.common.collect.GenericMapMaker expireAfterAccess(long,java.util.concurrent.TimeUnit)
+    108:108:bridge synthetic com.google.common.collect.GenericMapMaker expireAfterWrite(long,java.util.concurrent.TimeUnit)
+    108:108:bridge synthetic com.google.common.collect.GenericMapMaker maximumSize(int)
+    108:108:bridge synthetic com.google.common.collect.GenericMapMaker keyEquivalence(com.google.common.base.Equivalence)
+com.google.common.collect.MapMaker$RemovalCause:
+    abstract boolean wasEvicted()
+com.google.common.collect.MapMaker$RemovalCause$1:
+    691:691:boolean wasEvicted()
+com.google.common.collect.MapMaker$RemovalCause$2:
+    704:704:boolean wasEvicted()
+com.google.common.collect.MapMaker$RemovalCause$3:
+    715:715:boolean wasEvicted()
+com.google.common.collect.MapMaker$RemovalCause$4:
+    726:726:boolean wasEvicted()
+com.google.common.collect.MapMaker$RemovalCause$5:
+    737:737:boolean wasEvicted()
+com.google.common.collect.MapMaker$RemovalNotification:
+    668:668:public com.google.common.collect.MapMaker$RemovalCause getCause()
+    676:676:public boolean wasEvicted()
+com.google.common.collect.MapMakerInternalMap:
+    static final int MAXIMUM_CAPACITY
+    static final int MAX_SEGMENTS
+    static final int CONTAINS_VALUE_RETRIES
+    static final int DRAIN_THRESHOLD
+    static final int DRAIN_MAX
+    static final long CLEANUP_EXECUTOR_DELAY_SECS
+    1827:1827:com.google.common.collect.MapMakerInternalMap$ReferenceEntry newEntry(java.lang.Object,int,com.google.common.collect.MapMakerInternalMap$ReferenceEntry)
+    1836:1837:com.google.common.collect.MapMakerInternalMap$ReferenceEntry copyEntry(com.google.common.collect.MapMakerInternalMap$ReferenceEntry,com.google.common.collect.MapMakerInternalMap$ReferenceEntry)
+    1846:1847:com.google.common.collect.MapMakerInternalMap$ValueReference newValueReference(com.google.common.collect.MapMakerInternalMap$ReferenceEntry,java.lang.Object)
+    1872:1872:boolean isLive(com.google.common.collect.MapMakerInternalMap$ReferenceEntry)
+com.google.common.collect.MapMakerInternalMap$CleanupMapTask
+com.google.common.collect.MapMakerInternalMap$EntryFactory:
+    static final int EXPIRABLE_MASK
+    static final int EVICTABLE_MASK
+com.google.common.collect.MapMakerInternalMap$HashIterator:
+    public abstract java.lang.Object next()
+com.google.common.collect.MapMakerInternalMap$Segment:
+    2475:2493:boolean containsValue(java.lang.Object)
+com.google.common.collect.MapMakerInternalMap$SoftEntry
+com.google.common.collect.MapMakerInternalMap$SoftEvictableEntry
+com.google.common.collect.MapMakerInternalMap$SoftExpirableEntry
+com.google.common.collect.MapMakerInternalMap$SoftExpirableEvictableEntry
+com.google.common.collect.MinMaxPriorityQueue:
+    private static final int EVEN_POWERS_OF_TWO
+    private static final int ODD_POWERS_OF_TWO
+    private static final int DEFAULT_CAPACITY
+    473:478:boolean isIntact()
+    893:893:int capacity()
+com.google.common.collect.MinMaxPriorityQueue$Builder:
+    private static final int UNSET_EXPECTED_SIZE
+com.google.common.collect.MinMaxPriorityQueue$Heap:
+    705:719:private boolean verifyIndex(int)
+    487:487:static synthetic boolean access$400(com.google.common.collect.MinMaxPriorityQueue$Heap,int)
+com.google.common.collect.Multimaps$AsMap:
+    public abstract int size()
+com.google.common.collect.MutableClassToInstanceMap:
+    private static final long serialVersionUID
+com.google.common.collect.Ordering:
+    static final int LEFT_IS_GREATER
+    static final int RIGHT_IS_GREATER
+com.google.common.collect.Ordering$ArbitraryOrderingHolder:
+    240:240:private Ordering$ArbitraryOrderingHolder()
+com.google.common.collect.Platform:
+    102:102:private Platform()
+com.google.common.collect.RegularImmutableAsList:
+    48:48:com.google.common.collect.ImmutableList delegateList()
+com.google.common.collect.RegularImmutableBiMap:
+    static final double MAX_LOAD_FACTOR
+com.google.common.collect.RegularImmutableMap:
+    private static final double MAX_LOAD_FACTOR
+com.google.common.collect.Serialization:
+    35:35:private Serialization()
+com.google.common.collect.SortedIterable:
+    public abstract java.util.Iterator iterator()
+com.google.common.collect.SortedIterables:
+    31:31:private SortedIterables()
+com.google.common.collect.SortedLists:
+    42:42:private SortedLists()
+    191:192:public static int binarySearch(java.util.List,java.lang.Comparable,com.google.common.collect.SortedLists$KeyPresentBehavior,com.google.common.collect.SortedLists$KeyAbsentBehavior)
+com.google.common.collect.SortedMultisetBridge:
+    public abstract java.util.SortedSet elementSet()
+com.google.common.collect.SortedMultisets:
+    42:43:private SortedMultisets()
+com.google.common.collect.Synchronized:
+    60:60:private Synchronized()
+    918:918:static java.util.Map map(java.util.Map,java.lang.Object)
+com.google.common.collect.UnmodifiableSortedMultiset:
+    32:32:public bridge synthetic java.util.SortedSet elementSet()
+com.google.common.collect.package-info
+com.google.common.hash.AbstractCompositeHashFunction:
+    private static final long serialVersionUID
+com.google.common.hash.AbstractNonStreamingHashFunction
+com.google.common.hash.AbstractNonStreamingHashFunction$BufferingHasher
+com.google.common.hash.AbstractNonStreamingHashFunction$ExposedByteArrayOutputStream
+com.google.common.hash.BloomFilter$Strategy:
+    public abstract int ordinal()
+com.google.common.hash.Murmur3_128HashFunction$Murmur3_128Hasher:
+    private static final int CHUNK_SIZE
+    private static final long C1
+    private static final long C2
+com.google.common.hash.Murmur3_32HashFunction:
+    private static final int C1
+    private static final int C2
+com.google.common.hash.Murmur3_32HashFunction$Murmur3_32Hasher:
+    private static final int CHUNK_SIZE
+com.google.common.hash.package-info
+com.google.common.io.ByteSource:
+    private static final int BUF_SIZE
+com.google.common.io.ByteStreams:
+    private static final int BUF_SIZE
+com.google.common.io.CharStreams:
+    private static final int BUF_SIZE
+com.google.common.io.FileBackedOutputStream:
+    64:64:synchronized java.io.File getFile()
+com.google.common.io.Files:
+    private static final int TEMP_DIR_ATTEMPTS
+com.google.common.io.GwtWorkarounds:
+    38:38:private GwtWorkarounds()
+com.google.common.io.package-info
+com.google.common.math.BigIntegerMath:
+    static final int SQRT2_PRECOMPUTE_THRESHOLD
+com.google.common.math.DoubleMath:
+    private static final double MIN_INT_AS_DOUBLE
+    private static final double MAX_INT_AS_DOUBLE
+    private static final double MIN_LONG_AS_DOUBLE
+    private static final double MAX_LONG_AS_DOUBLE_PLUS_ONE
+    static final int MAX_FACTORIAL
+com.google.common.math.DoubleUtils:
+    static final long SIGNIFICAND_MASK
+    static final long EXPONENT_MASK
+    static final long SIGN_MASK
+    static final int SIGNIFICAND_BITS
+    static final int EXPONENT_BIAS
+    static final long IMPLICIT_BIT
+    36:37:private DoubleUtils()
+    40:40:static double nextDown(double)
+    139:143:static double ensureNonNegative(double)
+com.google.common.math.IntMath:
+    static final int MAX_POWER_OF_SQRT2_UNSIGNED
+    static final int FLOOR_SQRT_MAX_INT
+com.google.common.math.LongMath:
+    static final long MAX_POWER_OF_SQRT2_UNSIGNED
+    static final long FLOOR_SQRT_MAX_LONG
+com.google.common.math.MathPreconditions:
+    97:97:private MathPreconditions()
+com.google.common.math.package-info
+com.google.common.net.HostAndPort:
+    private static final int NO_PORT
+com.google.common.net.InetAddresses:
+    private static final int IPV4_PART_COUNT
+    private static final int IPV6_PART_COUNT
+com.google.common.net.InternetDomainName:
+    private static final int NO_PUBLIC_SUFFIX_FOUND
+    private static final java.lang.String DOT_REGEX
+    private static final int MAX_PARTS
+    private static final int MAX_LENGTH
+    private static final int MAX_DOMAIN_PART_LENGTH
+com.google.common.net.MediaType:
+    private static final java.lang.String CHARSET_ATTRIBUTE
+    private static final java.lang.String APPLICATION_TYPE
+    private static final java.lang.String AUDIO_TYPE
+    private static final java.lang.String IMAGE_TYPE
+    private static final java.lang.String TEXT_TYPE
+    private static final java.lang.String VIDEO_TYPE
+    private static final java.lang.String WILDCARD
+    496:496:static com.google.common.net.MediaType createApplicationType(java.lang.String)
+    505:505:static com.google.common.net.MediaType createAudioType(java.lang.String)
+    514:514:static com.google.common.net.MediaType createImageType(java.lang.String)
+    523:523:static com.google.common.net.MediaType createTextType(java.lang.String)
+    532:532:static com.google.common.net.MediaType createVideoType(java.lang.String)
+com.google.common.net.TldPatterns:
+    32:32:private TldPatterns()
+com.google.common.net.package-info
+com.google.common.primitives.AndroidInteger:
+    34:34:static java.lang.Integer tryParse(java.lang.String)
+    90:90:private AndroidInteger()
+com.google.common.primitives.UnsignedBytes:
+    private static final int UNSIGNED_MASK
+com.google.common.primitives.UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator
+com.google.common.primitives.UnsignedBytes$LexicographicalComparatorHolder$UnsafeComparator$1
+com.google.common.primitives.UnsignedInts:
+    static final long INT_MASK
+com.google.common.primitives.UnsignedLong:
+    private static final long UNSIGNED_MASK
+com.google.common.primitives.package-info
+com.google.common.reflect.ClassPath:
+    private static final java.lang.String CLASS_FILE_NAME_EXTENSION
+com.google.common.reflect.Element:
+    141:141:final boolean isVolatile()
+    146:146:final boolean isTransient()
+com.google.common.reflect.Types:
+    503:503:private Types()
+com.google.common.reflect.package-info
+com.google.common.util.concurrent.AbstractFuture$Sync:
+    static final int RUNNING
+    static final int COMPLETING
+    static final int COMPLETED
+    static final int CANCELLED
+    static final int INTERRUPTED
+com.google.common.util.concurrent.AbstractScheduledService$CustomScheduler:
+    458:460:final java.util.concurrent.Future schedule(com.google.common.util.concurrent.AbstractService,java.util.concurrent.ScheduledExecutorService,java.lang.Runnable)
+com.google.common.util.concurrent.AbstractScheduledService$CustomScheduler$ReschedulableCallable
+com.google.common.util.concurrent.AbstractScheduledService$CustomScheduler$Schedule:
+    470:470:static synthetic long access$700(com.google.common.util.concurrent.AbstractScheduledService$CustomScheduler$Schedule)
+    470:470:static synthetic java.util.concurrent.TimeUnit access$800(com.google.common.util.concurrent.AbstractScheduledService$CustomScheduler$Schedule)
+com.google.common.util.concurrent.AtomicLongMap:
+    366:385:long putIfAbsent(java.lang.Object,long)
+    398:402:boolean replace(java.lang.Object,long,long)
+    411:429:boolean remove(java.lang.Object,long)
+com.google.common.util.concurrent.RateLimiter:
+    275:278:static com.google.common.util.concurrent.RateLimiter createBursty(com.google.common.util.concurrent.RateLimiter$SleepingTicker,double,int)
+com.google.common.util.concurrent.ServiceManager:
+    186:187:ServiceManager(java.util.Set)
+com.google.common.util.concurrent.Striped:
+    private static final int ALL_SET
+com.google.common.util.concurrent.Striped$PaddedLock:
+    long q1
+    long q2
+    long q3
+com.google.common.util.concurrent.Striped$PaddedSemaphore:
+    long q1
+    long q2
+    long q3
+com.google.common.util.concurrent.package-info

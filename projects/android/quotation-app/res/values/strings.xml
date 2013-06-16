@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	Copyright (C) 2013 bwgz.org
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License version 3 as 
+	published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<resources>
+    <string name="app_name">Quote</string>
+    <string name="small_widget_name">Quote (Mini)</string>
+    <string name="large_widget_name">Quote (Full)</string>
+    
+    <string name="actionbar_new">New Quote</string>
+    <string name="actionbar_share">Share</string>
+    
+	<string name="menu_attribution">Attribution</string>
+	<string name="menu_terms_of_use">Terms of Use</string>
+	<string name="menu_settings">Settings</string>
+	<string name="unattributed_quote">Unattributed Author</string>
+	<string name="menu_environment">Environment</string>
+	<string name="loading_quote">Loading quote &#8230;</string>
+	<string name="loading_random_quote">Loading random quote &#8230;</string>
+</resources>

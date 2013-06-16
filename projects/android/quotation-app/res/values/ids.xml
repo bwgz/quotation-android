@@ -1,0 +1,4 @@
+<resources>
+    <item name="actionbar_new" type="id"/>
+    <item name="actionbar_share" type="id"/>
+</resources>

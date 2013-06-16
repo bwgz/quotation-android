@@ -1,0 +1,1 @@
+mvn -Dandroid.release=true clean generate-sources source:jar install

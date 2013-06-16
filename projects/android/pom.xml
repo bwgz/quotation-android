@@ -3,12 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<name>Quotation Android Project</name>
+	<name>Quotation Android</name>
 	
 	<parent>
 		<groupId>org.bwgz.quotation</groupId>
 		<artifactId>quotation</artifactId>
-		<version>1.0</version>
+		<version>1.0.0-BETA</version>
 		<relativePath>..</relativePath>
 	</parent>
 	
@@ -16,14 +16,26 @@
 	<packaging>pom</packaging>
 	
 	<modules>
-		<module>support</module>
-		<module>developer</module>
-		<module>qotd</module>
+		<module>quotation-content-provider</module>
+		<module>quotation-app</module>
 	</modules>
 	
 	<properties>
-        <android-support-v4-version>r13</android-support-v4-version>
-		<android-sdk-path>C:/Progra~1/Android/android-sdk</android-sdk-path>
+		<android-version>4.0.1.2</android-version>
+		<android-support-v4-version>r13</android-support-v4-version>
+		
+		<android-maven-plugin-version>3.5.3</android-maven-plugin-version>
+		<android-platform>17</android-platform>
+		<android-sdk-path>${android.sdk.path}</android-sdk-path>
 	</properties>
 	
+	<dependencies>
+		<dependency>
+			<groupId>com.google.android</groupId>
+			<artifactId>android</artifactId>
+			<version>${android-version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+
 </project>
