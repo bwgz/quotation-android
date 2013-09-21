@@ -1,4 +1,11 @@
 #################
+## Test Bed Exclusions
+#################
+
+projects/android/JakeWharton-ActionBarSherlock-c47975f/
+projects/documentation/
+
+#################
 ## Eclipse
 #################
 

@@ -48,6 +48,7 @@ import android.util.Log;
 public class QuotationContentProvider extends ContentProvider {
 	static private String TAG = QuotationContentProvider.class.getSimpleName();
 
+    static private final int DATABASE_VERSION = 2;
     static private final int QUEUE_CAPACITY = 3;
 
     private ArrayBlockingQueue<Uri> queue = new ArrayBlockingQueue<Uri>(QUEUE_CAPACITY);
@@ -149,7 +150,7 @@ public class QuotationContentProvider extends ContentProvider {
     @Override
 	public boolean onCreate() {
 		Log.d(TAG, "onCreate");
-		quotationSQLiteHelper = new QuotationSQLiteHelper(getContext(), QuotationContract.Quotation.TABLE, null, 1);
+		quotationSQLiteHelper = new QuotationSQLiteHelper(getContext(), QuotationContract.Quotation.TABLE, null, DATABASE_VERSION);
 		
 		String name = getContext().getPackageName();
 		String key = null;

@@ -59,7 +59,7 @@ public class QuotationSQLiteHelper extends SQLiteOpenHelper {
 			"_id STRING PRIMARY KEY,"					+
 			"name TEXT,"								+
 			"description TEXT,"							+
-			"language TEXT NOT NULL,"					+
+			"language TEXT,"							+
 			"citation_provider TEXT,"					+
 			"citation_statement TEXT,"					+
 			"citation_uri TEXT,"						+

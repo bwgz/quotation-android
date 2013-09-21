@@ -71,6 +71,7 @@ public class GenerateQuotationCursors {
 	        fbc.setCursor(cursor);
 	        cursors.add(fbc);
 	        
+	        verbose(verbose, String.format("offset: %7d  cursor: %s", offset, cursor));
 	        offset += response.getResult().length;
 	        
 	        Object object = response.getCursor();

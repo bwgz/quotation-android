@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>org.bwgz.quotation</groupId>
 		<artifactId>freebase</artifactId>
-		<version>1.0.0-BETA</version>
+		<version>1.0.1-BETA</version>
 		<relativePath>..</relativePath>
 	</parent>
 	
