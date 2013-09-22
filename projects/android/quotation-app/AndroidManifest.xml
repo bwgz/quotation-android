@@ -15,8 +15,8 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="101"
-	android:versionName="1.0.1-BETA"
+    android:versionCode="102"
+	android:versionName="1.0.2-BETA"
 	package="org.bwgz.quotation">
     
     <uses-sdk

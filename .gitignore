@@ -1,9 +1,11 @@
 #################
-## Test Bed Exclusions
+## Project Exclusions
 #################
 
-projects/android/JakeWharton-ActionBarSherlock-c47975f/
 projects/documentation/
+
+projects/android/JakeWharton-ActionBarSherlock-c47975f/
+projects/android/quotation-app/proguard/
 
 #################
 ## Eclipse

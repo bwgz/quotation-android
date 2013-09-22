@@ -93,6 +93,7 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 	protected void onSaveInstanceState(final Bundle outState) {
     	super.onSaveInstanceState(outState);
 		Log.d(TAG, String.format("onSaveInstanceState - outState: %s", outState));
+		Log.d(TAG, String.format("onSaveInstanceState - uri: %s", uri));
 		
 		if (uri != null) {
     		outState.putString(INSTANCE_STATE_URI, uri.toString());
@@ -177,6 +178,12 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 		if (cursor.moveToFirst()) {
 			uri = Quotation.withAppendedId(cursor.getString(cursor.getColumnIndex(Quotation._ID)));
 			Log.d(TAG, String.format("onLoadComplete - uri: %s", uri));
+			
+			Intent intent = getIntent();
+			if (intent != null) {
+				intent.setData(uri);
+			}
+			
 			fragment.setUri(uri);
 		}
 		cursor.close();
