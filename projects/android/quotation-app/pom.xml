@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.bwgz.quotation</groupId>
 		<artifactId>android</artifactId>
-		<version>1.0.2-BETA</version>
+		<version>1.0.3-BETA</version>
 		<relativePath>..</relativePath>
 	</parent>
 
@@ -14,20 +14,21 @@
 	<packaging>apk</packaging>
 
 	<properties>
+		<org-bwgz-android-version>1.1.0-BETA</org-bwgz-android-version>
 		<google-android-annotations-version>4.1.1.4</google-android-annotations-version>
-		<actionbarsherlock-version>4.3.0</actionbarsherlock-version>
+		<actionbarsherlock-version>4.4.0</actionbarsherlock-version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.bwgz.android</groupId>
 			<artifactId>org-bwgz-android-common</artifactId>
-            <version>${project.version}</version>
+            <version>${org-bwgz-android-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bwgz.android</groupId>
 			<artifactId>org-bwgz-android-environment</artifactId>
-            <version>${project.version}</version>
+            <version>${org-bwgz-android-version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.bwgz.quotation</groupId>
@@ -56,11 +57,17 @@
 				<extensions>true</extensions>
 				<configuration>
 					<genDirectory>${project.basedir}/gen</genDirectory>
+					<proguard>
+						<skip>false</skip>
+					</proguard>
 					<sdk>
 						<platform>${android-platform}</platform>
 						<path>${android-sdk-path}</path>
 					</sdk>
 					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+					<zipalign>
+						<verbose>true</verbose>
+					</zipalign>
 				</configuration>
 			</plugin>
 
@@ -84,7 +91,7 @@
 							<keystore>${sign.keystore}</keystore>
 							<storepass>${sign.storepass}</storepass>
 							<keypass>${sign.keypass}</keypass>
-							<alias>org.bwgz.quotation</alias>
+							<alias>${sign.alias}</alias>
 							<arguments>
 								<argument>-sigalg</argument>
 								<argument>MD5withRSA</argument>
@@ -118,4 +125,16 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<!-- the release profile does sign, proguard, zipalign ... but does not 
+				run instrumentation tests -->
+			<id>release</id>
+			<!-- via this activation the profile is automatically used when the release 
+				is done with the maven release plugin -->
+			<activation>
+                <activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
 </project>

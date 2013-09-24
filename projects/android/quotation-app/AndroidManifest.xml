@@ -15,8 +15,8 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="102"
-	android:versionName="1.0.2-BETA"
+    android:versionCode="103"
+	android:versionName="1.0.3-BETA"
 	package="org.bwgz.quotation">
     
     <uses-sdk
@@ -51,6 +51,8 @@
         <activity android:name="org.bwgz.android.environment.sherlock.DisplayActivity"/>
         <activity android:name="org.bwgz.android.environment.sherlock.OperatingSystemActivity"/>
         <activity android:name="org.bwgz.android.environment.sherlock.SystemActivity"/>
+        <activity android:name="org.bwgz.android.environment.sherlock.ConnectivityActivity"/>
+        <activity android:name="org.bwgz.android.environment.sherlock.NetworkInfoActivity"/>
         <activity android:name="org.bwgz.quotation.activity.LegalActivity" />
         <activity android:name="org.bwgz.quotation.activity.AttributionActivity" />
         <activity android:name="org.bwgz.quotation.activity.TermsOfUseActivity" />

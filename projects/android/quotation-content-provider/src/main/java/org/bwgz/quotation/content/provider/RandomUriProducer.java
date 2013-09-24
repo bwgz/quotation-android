@@ -27,6 +27,8 @@ import org.bwgz.quotation.content.provider.QuotationContract.Quotation;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.SystemClock;
 import android.util.Log;
@@ -42,6 +44,26 @@ public class RandomUriProducer {
 	private Context context;
 	private QuotationMidCacheLoader midLoader;
 	private LoadingCache<Integer, String> midCache;
+	
+	private boolean isConnected() {
+		boolean result = false;
+		
+		ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		if (manager == null) {
+			Log.e(TAG, "Cannot get connectivity manager.");
+		}
+		else {
+			NetworkInfo info = manager.getActiveNetworkInfo();
+			if (info != null) {
+				Log.d(TAG, String.format("info: %s", info.toString()));
+				result = info.isConnected();
+			}
+			
+			Log.d(TAG, String.format("connected: %s", result));
+		}
+		
+		return result;
+	}
 	
 	public RandomUriProducer(Context context, FreebaseHelper freebaseHelper) {
 		Log.d(TAG, String.format("RandomUriProducer"));
@@ -61,7 +83,7 @@ public class RandomUriProducer {
 	}
 	
 	
-	public String getNextIdFromFreebase() {
+	private String getNextIdFromFreebase() {
 		Log.d(TAG, String.format("getNextUriFromFreebase"));
 		
 		String id = null;
@@ -76,7 +98,7 @@ public class RandomUriProducer {
 		return id;
 	}
 	
-	public String getNextIdFromDatabase() {
+	private String getNextIdFromDatabase() {
 		Log.d(TAG, String.format("getNextIdFromDatabase"));
 		
 		String id = null;
@@ -101,15 +123,17 @@ public class RandomUriProducer {
 		return id;
 	}
 	
-	public String getNextIdFromDatabaseWithRetry(int retries, long timeout) {
+	private String getNextIdFromDatabaseWithRetry(int retries, long timeout) {
 		Log.d(TAG, String.format("getNextIdFromDatabaseWithRetry - retries: %d  timeout: %d", retries, timeout));
 		String id = null;
 		
 		for (int tries = 0; tries < retries; tries++) {
 			id = getNextIdFromDatabase();
-			if (id == null) {
-				SystemClock.sleep(timeout);
+			if (id != null) {
+				break;
 			}
+			
+			SystemClock.sleep(timeout);
 		}
 		
 		return id;
@@ -120,7 +144,9 @@ public class RandomUriProducer {
 		Uri uri = null;
 		
 		String id = null;
-		id = getNextIdFromFreebase();
+		if (isConnected()) {
+			id = getNextIdFromFreebase();
+		}
 		if (id == null) {
 			id = getNextIdFromDatabaseWithRetry(12, TimeUnit.SECONDS.toMillis(5));
 		}
