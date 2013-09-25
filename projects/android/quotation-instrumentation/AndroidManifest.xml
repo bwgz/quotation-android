@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+	Copyright (C) 2013 bwgz.org
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License version 3 as 
+	published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="103"
+	android:versionName="1.0.3-BETA"
+	package="org.bwgz.quotation.test">
+	
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="18" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+    
+    <application
+		android:icon="@+drawable/ic_launcher">
+		
+        <uses-library android:name="android.test.runner"/>
+        
+	</application>
+	
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+                     android:targetPackage="org.bwgz.quotation.test"
+                     android:label="Quotation Test"
+                     android:functionalTest="true"/>
+</manifest>

@@ -74,7 +74,10 @@ public class QuotationSQLiteHelper extends SQLiteOpenHelper {
 			"PRIMARY KEY (quotation_id, person_id)"									+
 			");";	
 	
-	public QuotationSQLiteHelper(Context context, String name, CursorFactory factory, int version) {
+    
+    static public final int DATABASE_VERSION = 2;
+
+    public QuotationSQLiteHelper(Context context, String name, CursorFactory factory, int version) {
 		super(context, name, factory, version); 	 
 		Log.d(TAG, String.format("QuotationSQLiteHelper - context: %s  name: %s  factory: %s  version: %s", context, name, factory, version));
 	}

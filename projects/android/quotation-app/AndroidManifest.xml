@@ -53,10 +53,10 @@
         <activity android:name="org.bwgz.android.environment.sherlock.SystemActivity"/>
         <activity android:name="org.bwgz.android.environment.sherlock.ConnectivityActivity"/>
         <activity android:name="org.bwgz.android.environment.sherlock.NetworkInfoActivity"/>
-        <activity android:name="org.bwgz.quotation.activity.LegalActivity" />
         <activity android:name="org.bwgz.quotation.activity.AttributionActivity" />
-        <activity android:name="org.bwgz.quotation.activity.TermsOfUseActivity" />
+        <activity android:name="org.bwgz.quotation.activity.LegalActivity" />
         <activity android:name="org.bwgz.quotation.activity.SettingsActivity" />
+        <activity android:name="org.bwgz.quotation.activity.TermsOfUseActivity" />
 	
 		<provider
 			android:name="org.bwgz.quotation.content.provider.QuotationContentProvider"

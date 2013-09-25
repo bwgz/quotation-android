@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>org.bwgz.quotation</groupId>
 		<artifactId>android</artifactId>
-		<version>1.0.3-BETA</version>
+		<version>1.0.4-BETA</version>
 		<relativePath>..</relativePath>
 	</parent>
 
@@ -14,7 +14,7 @@
 	<packaging>apk</packaging>
 
 	<properties>
-		<org-bwgz-android-version>1.1.0-BETA</org-bwgz-android-version>
+		<org-bwgz-android-version>1.1.1-BETA</org-bwgz-android-version>
 		<google-android-annotations-version>4.1.1.4</google-android-annotations-version>
 		<actionbarsherlock-version>4.4.0</actionbarsherlock-version>
 	</properties>

@@ -8,6 +8,7 @@ projects/android/JakeWharton-ActionBarSherlock-c47975f/
 projects/android/quotation-app/proguard/
 
 release.bat
+lint.xml
 
 #################
 ## Eclipse
