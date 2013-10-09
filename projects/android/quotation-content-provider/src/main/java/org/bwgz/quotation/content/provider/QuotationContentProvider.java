@@ -152,7 +152,7 @@ public class QuotationContentProvider extends ContentProvider {
 		quotationSQLiteHelper = new QuotationSQLiteHelper(getContext(), QuotationContract.Quotation.TABLE, null, QuotationSQLiteHelper.DATABASE_VERSION);
 		
 		String name = getContext().getPackageName();
-		String key = null;
+		String keys[] = null;
 		
         try {
         	ProviderInfo info = getContext().getPackageManager().getProviderInfo(new ComponentName(getContext().getPackageName(), getClass().getName()), PackageManager.GET_META_DATA);
@@ -160,18 +160,32 @@ public class QuotationContentProvider extends ContentProvider {
 	    	
 			if (info != null && info.metaData != null) {
 				Log.d(TAG, String.format("onCreate - info.metaData: %s", info.metaData));
-				key = info.metaData.getString("freebase.api.key");
-				Log.d(TAG, String.format("onCreate - freebase.api.key: %s", key));
+				
+				int id = info.metaData.getInt("freebase.api.keys");
+				Log.d(TAG, String.format("onCreate - freebase.api.keys: %d", id));
+				if (id != 0) {
+					keys = getContext().getResources().getStringArray(id);
+					Log.d(TAG, String.format("onCreate - freebase.api.keys: %s", keys));
+				}
+				
+				if (keys == null) {
+					String key = info.metaData.getString("freebase.api.key");
+					Log.d(TAG, String.format("onCreate - freebase.api.key: %s", key));
+					
+					if (key != null) {
+						keys = new String[] { key };
+					}
+				}
 			}
 		} catch (NameNotFoundException e) {
 			Log.e(TAG, e.getMessage());
 		}
         
-        if (key == null) {
+        if (keys == null) {
         	Log.w(TAG, "working without Freebase API key");
         }
 		
-        freebaseHelper = new FreebaseHelper(name, key);
+        freebaseHelper = new FreebaseHelper(name, keys);
         
         runEvictTask();
 		runRandomUriProducerTask();

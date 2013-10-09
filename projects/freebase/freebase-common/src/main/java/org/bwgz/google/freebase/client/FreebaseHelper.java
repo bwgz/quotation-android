@@ -20,14 +20,13 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.Arrays;
 import java.util.Locale;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import org.bwgz.google.api.services.freebase.model.MqlReadResponse;
 
 import com.google.api.client.googleapis.json.GoogleJsonError;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
-import com.google.api.client.http.HttpRequest;
-import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.HttpTransport;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.JsonFactory;
@@ -37,42 +36,38 @@ import com.google.api.services.freebase.model.TopicLookup;
 
 public class FreebaseHelper {
 	private static String[] reasons = { "userRateLimitExceededUnreg" };
-	private static final long KEY_PERIOD = TimeUnit.MILLISECONDS.convert(10, TimeUnit.MINUTES);
+	private static final long KEY_PERIOD = TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS);
 	
 	private long keyLastUsed = 0;
 
 	private Freebase freebase;
-	private String key;
+	private String[] keys;
+	
+	private Random random = new Random();
 
-	public FreebaseHelper(String applicationName, String key) {
+	public FreebaseHelper(String applicationName, String[] keys) {
         HttpTransport httpTransport = new NetHttpTransport();
         JsonFactory jsonFactory = new JacksonFactory();
-        HttpRequestInitializer httpRequestInitializer = new HttpRequestInitializer() {
-
-    		@Override
-    		public void initialize(HttpRequest request) throws IOException {
-    		}
-        };
         
-        Freebase.Builder fbb = new  Freebase.Builder(httpTransport, jsonFactory, httpRequestInitializer);
+        Freebase.Builder fbb = new  Freebase.Builder(httpTransport, jsonFactory, null);
         fbb.setApplicationName(applicationName);
         freebase = fbb.build();
         
-        this.key = key;
+        this.keys = keys;
+	}
+	
+	public FreebaseHelper(String applicationName, String key) {
+		this(applicationName, new String[] { key });
 	}
 
 	public FreebaseHelper(String applicationName) {
-		this(applicationName, null);
+		this(applicationName, (String[]) null);
 	}
 
-	public String getKey() {
-		return key;
+	public String getRandomKey() {
+		return keys != null && keys.length != 0 ? keys[random.nextInt(keys.length)] : null;
 	}
-
-	public void setKey(String key) {
-		this.key = key;
-	}
-
+	
 	private boolean useKey() {
 		return System.currentTimeMillis() < (keyLastUsed + KEY_PERIOD);
 	}
@@ -102,7 +97,7 @@ public class FreebaseHelper {
 	
 		Freebase.Topic.Lookup lookup = freebase.topic().lookup(Arrays.asList(mid)).setLang(lang).setFilter(Arrays.asList(filters));
 		if (useKey()) {
-			lookup.setKey(key);
+			lookup.setKey(getRandomKey());
 			retries = 1;
 		}
 		
@@ -112,7 +107,7 @@ public class FreebaseHelper {
 	        } 
         	catch (GoogleJsonResponseException e) {
         		if (lookup.getKey() == null && shouldRetryWithKey(e)) {
-        			lookup.setKey(key);
+        			lookup.setKey(getRandomKey());
             		keyLastUsed = System.currentTimeMillis();
         		}
         		else {
@@ -125,7 +120,7 @@ public class FreebaseHelper {
 	}
 	
 	public TopicLookup fetchTopic(String mid, String[] filters) throws IOException {
-		return fetchTopic(mid, Locale.getDefault().toString(), filters);
+		return fetchTopic(mid, Locale.getDefault().toString().replace('_', '-'), filters);
 	}
 
 	public byte[] fetchImage(String mid, long height, long width) throws IOException {
@@ -134,7 +129,7 @@ public class FreebaseHelper {
 		
 		Freebase.Image image = freebase.image(Arrays.asList(mid));
 		if (useKey()) {
-			image.setKey(key);
+			image.setKey(getRandomKey());
 			retries = 1;
 		}
 		image.setMaxheight(Long.valueOf(height));
@@ -148,7 +143,7 @@ public class FreebaseHelper {
 	        } 
         	catch (GoogleJsonResponseException e) {
         		if (image.getKey() == null && shouldRetryWithKey(e)) {
-        			image.setKey(key);
+        			image.setKey(getRandomKey());
         			keyLastUsed = System.currentTimeMillis();
         		}
         		else {
@@ -169,7 +164,7 @@ public class FreebaseHelper {
 		
         Freebase.Mqlread<MqlReadResponse<T>> mqlRead = freebase.mqlread(query, clazz, type);
 		if (useKey()) {
-			mqlRead.setKey(key);
+			mqlRead.setKey(getRandomKey());
 			retries = 1;
 		}
      	mqlRead.setCursor(cursor);
@@ -180,7 +175,7 @@ public class FreebaseHelper {
 	        } 
         	catch (GoogleJsonResponseException e) {
         		if (mqlRead.getKey() == null && shouldRetryWithKey(e)) {
-        			mqlRead.setKey(key);
+        			mqlRead.setKey(getRandomKey());
         			keyLastUsed = System.currentTimeMillis();
         		}
         		else {

@@ -36,7 +36,7 @@ public class QuotationSyncService extends Service {
 		Log.d(TAG, "onCreate");
 	    if (syncAdapter == null) {
 			String name = getPackageName();
-			String key = null;
+			String keys[] = null;
 			
 	        try {
 	        	ServiceInfo info = getPackageManager().getServiceInfo(new ComponentName(getPackageName(), getClass().getName()), PackageManager.GET_META_DATA);
@@ -44,18 +44,32 @@ public class QuotationSyncService extends Service {
 		    	
 				if (info != null && info.metaData != null) {
 					Log.d(TAG, String.format("onCreate - info.metaData: %s", info.metaData));
-					key = info.metaData.getString("freebase.api.key");
-					Log.d(TAG, String.format("onCreate - freebase.api.key: %s", key));
+					
+					int id = info.metaData.getInt("freebase.api.keys");
+					Log.d(TAG, String.format("onCreate - freebase.api.keys: %d", id));
+					if (id != 0) {
+						keys = getResources().getStringArray(id);
+						Log.d(TAG, String.format("onCreate - freebase.api.keys: %s", keys));
+					}
+					
+					if (keys == null) {
+						String key = info.metaData.getString("freebase.api.key");
+						Log.d(TAG, String.format("onCreate - freebase.api.key: %s", key));
+						
+						if (key != null) {
+							keys = new String[] { key };
+						}
+					}
 				}
 			} catch (NameNotFoundException e) {
 				Log.e(TAG, e.getMessage());
 			}
 			
-	        if (key == null) {
+	        if (keys == null) {
 	        	Log.w(TAG, "working without Freebase API key");
 	        }
 
-	        FreebaseHelper freebaseHelper = new FreebaseHelper(name, key);
+	        FreebaseHelper freebaseHelper = new FreebaseHelper(name, keys);
 	    	syncAdapter = new QuotationSyncAdapter(getApplicationContext(), true, freebaseHelper);
 	    }
 	}

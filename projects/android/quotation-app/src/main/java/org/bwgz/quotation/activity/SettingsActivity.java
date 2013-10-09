@@ -41,7 +41,8 @@ public class SettingsActivity extends SherlockPreferenceActivity {
     	getFragmentManager().beginTransaction().replace(android.R.id.content, new SettingsFragment()).commit();
     }
 
-    private void addResource() {
+    @SuppressWarnings("deprecation")
+	private void addResource() {
     	addPreferencesFromResource(R.xml.settings);
     }
     

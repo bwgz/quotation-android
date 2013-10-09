@@ -15,8 +15,8 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="103"
-	android:versionName="1.0.3-BETA"
+    android:versionCode="110"
+	android:versionName="1.1.0-BETA"
 	package="org.bwgz.quotation">
     
     <uses-sdk
@@ -62,7 +62,7 @@
 			android:name="org.bwgz.quotation.content.provider.QuotationContentProvider"
 			android:authorities="org.bwgz.quotation">
             
-            <meta-data android:name="freebase.api.key" android:value="@string/freebase_api_key" />
+            <meta-data android:name="freebase.api.keys" android:resource="@array/freebase_api_keys" />
 		</provider>
 		
         <service
@@ -73,7 +73,7 @@
             </intent-filter>
 
             <meta-data android:name="android.content.SyncAdapter" android:resource="@+xml/syncadapter" />
-            <meta-data android:name="freebase.api.key" android:value="@string/freebase_api_key" />
+            <meta-data android:name="freebase.api.keys" android:resource="@array/freebase_api_keys" />
 		</service>
 		<service
             android:name="org.bwgz.quotation.content.provider.AccountAuthenticatorService"

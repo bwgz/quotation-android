@@ -1,36 +1,35 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-	android:title="Settings">
+	android:title="@string/title_settings">
  
-    <PreferenceCategory android:title="About">
-		<Preference android:title="Version" android:icon="@android:drawable/ic_menu_info_details" android:summary="1.0.0-BETA"/>
-		<Preference android:title="Legal" android:icon="@android:drawable/ic_menu_info_details">
+    <PreferenceCategory android:title="@string/title_about">
+		<Preference android:title="@string/title_version" android:icon="@android:drawable/ic_menu_info_details" android:summary="@string/version"/>
+		<Preference android:title="@string/title_legal" android:icon="@android:drawable/ic_menu_info_details">
 		    <intent 
 		        android:action="android.intent.action.VIEW"
 		        android:targetPackage="org.bwgz.quotation"
 		        android:targetClass="org.bwgz.quotation.activity.LegalActivity"
 		    />
 		</Preference>
-		<Preference android:title="Attribution" android:icon="@android:drawable/ic_menu_info_details">
+		<Preference android:title="@string/title_attribution" android:icon="@android:drawable/ic_menu_info_details">
 		    <intent 
 		        android:action="android.intent.action.VIEW"
 		        android:targetPackage="org.bwgz.quotation"
 		        android:targetClass="org.bwgz.quotation.activity.AttributionActivity"
 		    />
 		</Preference>
-		<Preference android:title="Terms of Use" android:icon="@android:drawable/ic_menu_info_details">
+		<Preference android:title="@string/title_terms_of_use" android:icon="@android:drawable/ic_menu_info_details">
 		    <intent 
 		        android:action="android.intent.action.VIEW"
 		        android:targetPackage="org.bwgz.quotation"
 		        android:targetClass="org.bwgz.quotation.activity.TermsOfUseActivity"
 		    />
 		</Preference>
-		<Preference android:title="Environment" android:icon="@android:drawable/ic_menu_help">
+		<Preference android:title="@string/title_environment" android:icon="@android:drawable/ic_menu_help">
 		    <intent 
 		        android:action="android.intent.action.VIEW"
 		        android:targetPackage="org.bwgz.quotation"
 		        android:targetClass="org.bwgz.android.environment.sherlock.EnvironmentActivity"
 		    />
 		</Preference>
-		1.0.0-BETA
 	</PreferenceCategory>
 </PreferenceScreen>

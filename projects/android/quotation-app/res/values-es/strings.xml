@@ -1,0 +1,38 @@
+<!-- 
+	Copyright (C) 2013 bwgz.org
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License version 3 as 
+	published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<resources>
+    <string name="app_name">"Quotation"</string>
+    <string name="small_widget_name">"Quotation (Mini)"</string>
+    <string name="large_widget_name">"Quotation (Completo)"</string>
+    
+    <string name="actionbar_back">"Atrás"</string>
+    <string name="actionbar_forward">"Adelante"</string>
+    <string name="actionbar_new">"Nuevo"</string>
+    <string name="actionbar_share">"Compartir"</string>
+    
+	<string name="menu_settings">"Configuración"</string>
+	<string name="unattributed_quote">"Autor anónimo autor"</string>
+	<string name="loading_quote">"Cargando una oferta &#8230;"</string>
+	<string name="sharing_quote">Compartir presupuesto para &#8230;</string>
+		
+	<string name="title_settings">"Configuración"</string>
+	<string name="title_about">"Acerca de"</string>
+	<string name="title_version">"Versión"</string>
+	<string name="title_legal">"Legal"</string>
+	<string name="title_attribution">"Atribución"</string>
+	<string name="title_terms_of_use">"Términos de uso"</string>
+	<string name="title_environment">"Medio ambiente"</string>
+</resources>
