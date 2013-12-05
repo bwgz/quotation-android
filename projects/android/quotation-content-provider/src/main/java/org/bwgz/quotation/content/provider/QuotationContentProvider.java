@@ -26,6 +26,7 @@ import org.bwgz.quotation.content.provider.QuotationContract.Person;
 import org.bwgz.quotation.content.provider.QuotationContract.Quotation;
 import org.bwgz.quotation.content.provider.QuotationContract.QuotationPerson;
 
+import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.ContentProvider;
 import android.content.ContentProviderOperation;
@@ -42,6 +43,7 @@ import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -116,18 +118,20 @@ public class QuotationContentProvider extends ContentProvider {
 		new Timer().schedule(evictTask, TimeUnit.MINUTES.toMillis(5), TimeUnit.HOURS.toMillis(12));
     }
 
-    private void runRandomUriProducerTask() {
+	private void runRandomUriProducerTask() {
+		Log.d(TAG, String.format("runRandomUriProducerTask[before test] - task: %s (%s)", randomUriProducerTask, randomUriProducerTask != null ? randomUriProducerTask.getStatus() : "null"));
     	if (randomUriProducerTask != null) {
     		if (randomUriProducerTask.getStatus() == AsyncTask.Status.FINISHED) {
     			randomUriProducerTask = null;
     		}
     	}
+		Log.d(TAG, String.format("runRandomUriProducerTask[after test] - task: %s (%s)", randomUriProducerTask, randomUriProducerTask != null ? randomUriProducerTask.getStatus() : "null"));
     	
     	if (randomUriProducerTask == null) {
 			randomUriProducerTask = new RandomUriProducerTask(getContext(), freebaseHelper);
-			Log.d(TAG, String.format("task: %s (%s)", randomUriProducerTask, randomUriProducerTask.getStatus()));
+			Log.d(TAG, String.format("runRandomUriProducerTask[before execute] - task: %s (%s)", randomUriProducerTask, randomUriProducerTask.getStatus()));
 			randomUriProducerTask.execute(queue);
-			Log.d(TAG, String.format("task: %s (%s)", randomUriProducerTask, randomUriProducerTask.getStatus()));
+			Log.d(TAG, String.format("runRandomUriProducerTask[after execute] - task: %s (%s)", randomUriProducerTask, randomUriProducerTask.getStatus()));
     	}
     }
 

@@ -23,6 +23,7 @@ import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 import org.bwgz.quotation.R;
+import org.bwgz.quotation.app.QuotationApplication;
 import org.bwgz.quotation.content.provider.QuotationContract.Person;
 import org.bwgz.quotation.content.provider.QuotationContract.Quotation;
 import org.bwgz.quotation.content.provider.QuotationContract.QuotationPerson;
@@ -30,8 +31,10 @@ import org.bwgz.quotation.content.provider.QuotationContract.QuotationPerson;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -54,12 +57,13 @@ import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.analytics.tracking.android.EasyTracker;
+import com.google.analytics.tracking.android.MapBuilder;
 
 @SuppressLint("ShowToast")
 public class QuotationActivity extends SherlockFragmentActivity implements OnLoadCompleteListener<Cursor>, LoaderCallbacks<Cursor> {
@@ -76,10 +80,13 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 	static private final int LOADER_ID_AUTHOR		= 2;
 	static private final int[] LOADER_IDS			= { LOADER_ID_QUTOATION, LOADER_ID_AUTHOR };
 	
+	static private final long AD_FREE_PERIOD		= TimeUnit.HOURS.toMillis(0);
+	
 	private enum LoadState { LOADING, LOADED }
 	
 	private LoadState state = LoadState.LOADED;
 	private LazyLoadMessageHandler lazyLoadMessageHandler;
+	private AsyncTask<Long, Void, Void> lazyAdViewTask;
 	private History history;
 	private Menu menu;
 
@@ -115,6 +122,58 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 			bundle.putString(LOAD_STATE, state.toString());
 			message.setData(bundle);
 			handler.sendMessage(message);
+		}
+	}
+
+	private class LazyAdViewTask extends AsyncTask<Long, Void, Void> {
+		private View view;
+		private Thread thread;
+		
+		public LazyAdViewTask(View view) {
+			this.view = view;
+		}
+		
+		@SuppressWarnings("static-access")
+		private boolean sleep(long period) {
+	    	Log.d(TAG, String.format("LazyAdViewTask::sleep - period: %d", period));
+			boolean result = true;
+			
+		    thread = Thread.currentThread();
+		    try {
+		    	Log.d(TAG, String.format("LazyAdViewTask::sleep - thread: %s", thread));
+		    	thread.sleep(period);         
+		    } catch (InterruptedException e) {
+				Log.d(TAG, String.format("LazyAdViewTask::sleep interrupted - thread: %s", thread));
+		    	thread.interrupt();
+		    	result = false;
+		    }
+		    thread = null;
+			
+		    return result;
+		}
+
+		
+		@Override
+		protected Void doInBackground(Long... params) {
+			Log.d(TAG, String.format("LazyAdViewTask::doInBackground - view: %s  params[0]: %d", view, params[0]));
+		    
+			sleep(params[0]);
+			
+			return null;
+		}
+		
+		@Override
+		protected void onCancelled() {
+			Log.d(TAG, String.format("LazyAdViewTask::onCancelled - thread: %s", thread));
+			if (thread != null) {
+				thread.interrupt();
+			}
+		}
+
+		@Override
+		protected void onPostExecute(Void result) {
+			Log.d(TAG, String.format("LazyAdViewTask::onPostExecute - view: %s", view));
+			view.setVisibility(View.VISIBLE);
 		}
 	}
 
@@ -218,15 +277,30 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 		}
 	}
 	
+	private long getRemaingAdFreePeriod() {
+    	SharedPreferences preferences = getSharedPreferences(QuotationApplication.APPLICATION_PREFERENCES, Context.MODE_PRIVATE);
+    	long date = preferences.getLong(QuotationApplication.PREFERENCE_APPLICATION_INITIALIZED_DATE, 0);
+    	
+		return AD_FREE_PERIOD - ((date != 0) ? (System.currentTimeMillis() - date) : 0);
+	}
+	
 	@Override
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
 		Log.d(TAG, String.format("onCreate - savedInstanceState: %s", bundle));
 
 		history = new History();
-        lazyLoadMessageHandler = new LazyLoadMessageHandler(Toast.makeText(this, R.string.loading_quote, (int) TimeUnit.SECONDS.toMillis(10)));
+        lazyLoadMessageHandler = new LazyLoadMessageHandler(Toast.makeText(this, R.string.loading_quote, (int) TimeUnit.SECONDS.toMillis(1)));
 
 		setContentView(R.layout.quote_activity);
+		
+		long adFreePeriod = getRemaingAdFreePeriod();
+		Log.d(TAG, String.format("onCreate - adFreePeriod: %d", adFreePeriod));
+		if (adFreePeriod > 0) {
+			View view = findViewById(R.id.adView);
+			view.setVisibility(View.GONE);
+			lazyAdViewTask = new LazyAdViewTask(view).execute(adFreePeriod);
+		}
     }
     
 	@Override
@@ -251,7 +325,13 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 		}
 	}
     
-   @Override
+	@Override
+	public void onStart() {
+		super.onStart();
+	    EasyTracker.getInstance(this).activityStart(this);
+	}
+	  
+	@Override
     protected void onResume() {
     	super.onResume();
     	
@@ -309,12 +389,18 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 				getSupportLoaderManager().destroyLoader(id);
 			}
 		}
+		
+	    EasyTracker.getInstance(this).activityStop(this);
     }
 
     @Override
     protected void onDestroy() {
     	super.onDestroy();
 		Log.d(TAG, String.format("onDestroy"));
+		
+		if (lazyAdViewTask != null && lazyAdViewTask.getStatus() != AsyncTask.Status.FINISHED) {
+			lazyAdViewTask.cancel(true);
+		}
     }
 
 	@Override
@@ -338,7 +424,7 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
     	boolean result = false;
-    	
+   	
     	switch (item.getItemId()) {
     	case R.id.actionbar_back:
 			{
@@ -350,6 +436,7 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 			menu.findItem(R.id.actionbar_back).setEnabled(history.hasBack());
 			menu.findItem(R.id.actionbar_forward).setEnabled(history.hasForward());
 			
+			EasyTracker.getInstance(this).send(MapBuilder.createEvent("ui_action", "button_press", "menu_back", null).build());
 			result = true;
 			break;
 			}
@@ -363,12 +450,15 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 			menu.findItem(R.id.actionbar_back).setEnabled(history.hasBack());
 			menu.findItem(R.id.actionbar_forward).setEnabled(history.hasForward());
 
+			EasyTracker.getInstance(this).send(MapBuilder.createEvent("ui_action", "button_press", "menu_forward", null).build());
 			result = true;
 			break;
 			}
     	case R.id.actionbar_new:
 			{
 		    loadRandomQuote();
+		    
+			EasyTracker.getInstance(this).send(MapBuilder.createEvent("ui_action", "button_press", "menu_new", null).build());
 			result = true;
 			break;
 			}
@@ -390,6 +480,8 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 	    		intent.putExtra(Intent.EXTRA_TEXT, buffer.toString());
 	    		startActivity(Intent.createChooser(intent, getResources().getText(R.string.sharing_quote)));
     		}
+    		
+			EasyTracker.getInstance(this).send(MapBuilder.createEvent("ui_action", "button_press", "menu_share", null).build());
 	    	result = true;
     		break;
     		}
@@ -397,6 +489,9 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
     		{
 	        Intent intent = new Intent().setClass(this, SettingsActivity.class);
     	    startActivity(intent);
+    	    
+			EasyTracker.getInstance(this).send(MapBuilder.createEvent("ui_action", "button_press", "menu_settings", null).build());
+	    	result = true;
     		break;
     		}
     	}
@@ -512,18 +607,23 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 		
 		switch (loader.getId()) {
 		case LOADER_ID_QUTOATION:
-			{
+			if (fragmentManager != null) {
 				QuotationFragment fragment = (QuotationFragment) fragmentManager.findFragmentById(R.id.quotationFragment);
-				fragment.setQuotation(cursor);
-				if (cursor.getCount() != 0) {
-					setLoadState(LoadState.LOADED);
+				
+				if (fragment != null) {
+					fragment.setQuotation(cursor);
 				}
+			}
+			if (cursor.getCount() != 0) {
+				setLoadState(LoadState.LOADED);
 			}
 			break;
 		case LOADER_ID_AUTHOR:
-			{
+			if (fragmentManager != null) {
 				AuthorFragment fragment = (AuthorFragment) fragmentManager.findFragmentById(R.id.authorFragment);
-				fragment.setAuthors(cursor);
+				if (fragment != null) {
+					fragment.setAuthors(cursor);
+				}
 			}
 			break;
 		}

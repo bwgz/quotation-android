@@ -8,7 +8,7 @@
 	<parent>
 		<groupId>org.bwgz.quotation</groupId>
 		<artifactId>quotation</artifactId>
-		<version>1.1.0-BETA</version>
+		<version>1.2.0-BETA</version>
 		<relativePath>..</relativePath>
 	</parent>
 	
@@ -23,6 +23,7 @@
 	
 	<properties>
 		<android-version>4.1.1.4</android-version>
+		<google-admod-version>6.4.1</android-version>
 		
 		<android-maven-plugin-version>3.6.1</android-maven-plugin-version>
 		<android-platform>18</android-platform>

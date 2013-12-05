@@ -29,29 +29,56 @@ import android.util.Log;
 public class QuotationApplication extends Application {
 	static private String TAG = QuotationApplication.class.getSimpleName();
 	
-	static public String APPLICATION_PREFERENCES	= "application.preferences";
-	static public String PREFERENCE_INITIALIZED		= "application.initialized";
+	static public String APPLICATION_PREFERENCES					= "quotation.preferences";
+	static public String PREFERENCE_APPLICATION_INITIALIZED_DATE	= "quotation.initialized.date";
+
+	private boolean hasQuotationAccount(AccountManager accountManager) {
+		boolean result = false;
+		
+		for (Account account : accountManager.getAccountsByType(QuotationAccount.TYPE)) {
+			if (account.name.equals(QuotationAccount.NAME)) {
+				result = true;
+				break;
+			}
+		}
+		
+		return result;
+	}
+	
+	private void initializeQuotationAccount(Context context) {
+		AccountManager accountManager = AccountManager.get(context);
+		
+		if (!hasQuotationAccount(accountManager)) {
+	        Account account = new QuotationAccount();
+	        
+	        if (accountManager.addAccountExplicitly(account, null, null)) {
+	        	Log.i(TAG, String.format("added account %s", account.name));
+	        	ContentResolver.setIsSyncable(account, QuotationContract.AUTHORITY, 1);
+	        	ContentResolver.setSyncAutomatically(account, QuotationContract.AUTHORITY, true);
+	        }
+	        else {
+	        	Log.e(TAG, "failed to create quotation account");
+	        }
+		}
+	}
+	
+	private void initialize(Context context) {
+    	SharedPreferences preferences = getSharedPreferences(APPLICATION_PREFERENCES, Context.MODE_PRIVATE);
+		
+		if (!preferences.contains(PREFERENCE_APPLICATION_INITIALIZED_DATE)) {
+			initializeQuotationAccount(context);
+			
+			SharedPreferences.Editor editor = preferences.edit();
+			editor.putLong(PREFERENCE_APPLICATION_INITIALIZED_DATE, System.currentTimeMillis());
+			editor.commit();
+		}
+	}
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
     	Log.d(TAG, String.format("onCreate"));
 		
-    	SharedPreferences preferences = getSharedPreferences(APPLICATION_PREFERENCES, Context.MODE_PRIVATE);
-
-		if (preferences.getBoolean(PREFERENCE_INITIALIZED, false) == false) {
-	        Account account = new QuotationAccount();
-	        AccountManager accountManager = AccountManager.get(getBaseContext());
-	        
-	        if (accountManager.addAccountExplicitly(account, null, null)) {
-	        	Log.i(TAG, String.format("added account %s", account.name));
-	        	ContentResolver.setIsSyncable(account, QuotationContract.AUTHORITY, 1);
-	        	ContentResolver.setSyncAutomatically(account, QuotationContract.AUTHORITY, true);
- 	        	
-		        preferences.edit().putBoolean(PREFERENCE_INITIALIZED, true);
-	        }
-	        
-			preferences.edit().commit();
-		}
+    	initialize(getBaseContext());
 	}
 }

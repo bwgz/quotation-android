@@ -34,6 +34,7 @@ public class RandomUriProducerTask extends AsyncTask<ArrayBlockingQueue<Uri>, Vo
 	private RandomUriProducer producer;
 
     public RandomUriProducerTask(Context context, FreebaseHelper freebaseHelper) {
+		Log.d(TAG, String.format("RandomUriProducerTask - context: %s  freebaseHelper: %s", context, freebaseHelper));
     	this.context = context;
     	producer = new RandomUriProducer(context, freebaseHelper);
     }
@@ -84,7 +85,14 @@ public class RandomUriProducerTask extends AsyncTask<ArrayBlockingQueue<Uri>, Vo
 			}
 		}
 		
+		Log.d(TAG, String.format("doInBackground: return"));
 		return null;
 	}
+    
+    @Override
+    protected void onPostExecute(Void result) {
+		Log.d(TAG, String.format("onPostExecute - status: %s", this.getStatus()));
+    }
+
 }
 

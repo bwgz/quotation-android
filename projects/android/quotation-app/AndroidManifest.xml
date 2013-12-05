@@ -15,8 +15,8 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="110"
-	android:versionName="1.1.0-BETA"
+    android:versionCode="120"
+	android:versionName="1.2.0-BETA"
 	package="org.bwgz.quotation">
     
     <uses-sdk
@@ -57,7 +57,10 @@
         <activity android:name="org.bwgz.quotation.activity.LegalActivity" />
         <activity android:name="org.bwgz.quotation.activity.SettingsActivity" />
         <activity android:name="org.bwgz.quotation.activity.TermsOfUseActivity" />
-	
+
+		<activity android:name="com.google.ads.AdActivity"
+			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+        	
 		<provider
 			android:name="org.bwgz.quotation.content.provider.QuotationContentProvider"
 			android:authorities="org.bwgz.quotation">
