@@ -20,7 +20,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.bwgz.google.freebase.client.FreebaseHelper;
 
-
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -59,8 +58,9 @@ public class RandomUriProducerTask extends AsyncTask<ArrayBlockingQueue<Uri>, Vo
 			
 			if (uri == null) {
 				uri = producer.getNextUri();
-				Log.d(TAG, String.format("fetched uri: %s", uri));
+				Log.d(TAG, String.format("producer returned - uri: %s", uri));
 		        Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+				Log.d(TAG, String.format("content resolved - cursor: %s", cursor));
 		        cursor.close();
 			}
 			
@@ -74,7 +74,7 @@ public class RandomUriProducerTask extends AsyncTask<ArrayBlockingQueue<Uri>, Vo
 			else {
 				try {
 					Log.d(TAG, String.format("queue before: %s (%d)", queue, queue.size()));
-					boolean result = queue.offer(uri, 1000, TimeUnit.MILLISECONDS);
+					boolean result = queue.offer(uri, 250, TimeUnit.MILLISECONDS);
 					Log.d(TAG, String.format("offer result: %s  queue after: %s (%d)", result, queue, queue.size()));
 					if (result) {
 						uri = null;

@@ -36,9 +36,9 @@ import com.google.api.services.freebase.model.TopicLookup;
 
 public class FreebaseHelper {
 	private static String[] reasons = { "userRateLimitExceededUnreg" };
-	private static final long KEY_PERIOD = TimeUnit.MILLISECONDS.convert(1, TimeUnit.HOURS);
+	private static final long KEY_PERIOD = TimeUnit.HOURS.toMillis(1);
 	
-	private long keyLastUsed = 0;
+	private long keyLastUsed = System.currentTimeMillis();
 
 	private Freebase freebase;
 	private String[] keys;

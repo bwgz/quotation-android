@@ -26,7 +26,6 @@ import org.bwgz.quotation.content.provider.QuotationContract.Person;
 import org.bwgz.quotation.content.provider.QuotationContract.Quotation;
 import org.bwgz.quotation.content.provider.QuotationContract.QuotationPerson;
 
-import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.ContentProvider;
 import android.content.ContentProviderOperation;
@@ -43,7 +42,6 @@ import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -303,7 +301,7 @@ public class QuotationContentProvider extends ContentProvider {
 					if (cursor.getCount() == 0 && doSync(uri)) {
 						Log.d(TAG, String.format("query - requesting sync uri: %s", uri));
 						Bundle extras = new Bundle();
-				        extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, false);
+				        extras.putBoolean(ContentResolver.SYNC_EXTRAS_EXPEDITED, true);
 				        extras.putBoolean(ContentResolver.SYNC_EXTRAS_DO_NOT_RETRY, false);
 				        extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
 				        extras.putString(QuotationSyncAdapter.SYNC_EXTRAS_URI, uri.toString());

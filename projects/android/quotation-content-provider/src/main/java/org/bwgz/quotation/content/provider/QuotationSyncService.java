@@ -46,10 +46,13 @@ public class QuotationSyncService extends Service {
 					Log.d(TAG, String.format("onCreate - info.metaData: %s", info.metaData));
 					
 					int id = info.metaData.getInt("freebase.api.keys");
-					Log.d(TAG, String.format("onCreate - freebase.api.keys: %d", id));
+					Log.d(TAG, String.format("onCreate - metaData.id: %x", id));
 					if (id != 0) {
 						keys = getResources().getStringArray(id);
-						Log.d(TAG, String.format("onCreate - freebase.api.keys: %s", keys));
+						Log.d(TAG, String.format("onCreate - freebase.api.keys: %s", keys.toString()));
+						for (String key : keys) {
+							Log.d(TAG, String.format("onCreate - freebase.api.key: %s", key));
+						}
 					}
 					
 					if (keys == null) {

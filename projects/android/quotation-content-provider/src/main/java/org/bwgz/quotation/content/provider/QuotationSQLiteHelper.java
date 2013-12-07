@@ -104,7 +104,8 @@ public class QuotationSQLiteHelper extends SQLiteOpenHelper {
 	        	Log.e(TAG, "author images initialization file read failed", e);
 			}
 	
-			try {
+			db.beginTransaction();
+ 			try {
 				InputStream in = InitializeDatabaseTask.class.getResourceAsStream("/authors.json");
 				JsonParser parser = jsonFactory.createJsonParser(in);
 				TopicLookup[] persons = parser.parse(TopicLookup[].class, null);
@@ -167,11 +168,15 @@ public class QuotationSQLiteHelper extends SQLiteOpenHelper {
 						Log.d(TAG, String.format("rowId: %d  quotation_id: %s  person_id: %s", rowId, quotationId, personId));
 					}
 				}
+				
+				db.setTransactionSuccessful();
 			} catch (FileNotFoundException e) {
 	        	Log.e(TAG, "author initialization file not found", e);
 			} catch (IOException e) {
 	        	Log.e(TAG, "authors initialization file read failed", e);
-			}
+	        } finally {
+	            db.endTransaction();
+	        }
 		}
 
 		@Override

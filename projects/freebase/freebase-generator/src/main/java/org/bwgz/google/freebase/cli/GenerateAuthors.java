@@ -49,13 +49,13 @@ public class GenerateAuthors {
 	
 	private static final String[] ids = {
 		"/m/0jcx",		// Albert Einstein
-		"/m/081k8",		// William Shakespeare
+		//"/m/081k8",		// William Shakespeare
 		"/m/01bpn",		// Bertrand Russell
 		"/m/082xp",		// Winston Churchill
-		"/m/0btr9",		// Yogi Berra
-		"/m/03xlm",		// Indira Gandhi
-		"/m/0h9wp",		// Laozi 
-		"/m/07g2b",		// T.S. Eliot
+		//"/m/0btr9",		// Yogi Berra
+		//"/m/03xlm",		// Indira Gandhi
+		//"/m/0h9wp",		// Laozi 
+		//"/m/07g2b",		// T.S. Eliot
 		"/m/014635",	// Mark Twain
 		"/m/05g7q"		// Nelson Mandela
 	};
