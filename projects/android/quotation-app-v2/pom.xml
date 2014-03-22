@@ -1,0 +1,148 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<name>Quotation Android App</name>
+
+	<parent>
+		<groupId>org.bwgz.quotation</groupId>
+		<artifactId>android</artifactId>
+		<version>1.2.0-BETA</version>
+		<relativePath>..</relativePath>
+	</parent>
+
+	<artifactId>quotation-app-v2</artifactId>
+	<packaging>apk</packaging>
+
+  <properties>
+  </properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.bwgz.freebase</groupId>
+			<artifactId>google-api-services-freebase</artifactId>
+			<version>2.0.0-SNAPSHOT</version>
+		</dependency>
+	    <dependency>
+	      <groupId>com.google.api-client</groupId>
+	      <artifactId>google-api-client-android</artifactId>
+	      <version>1.17.0-rc</version>
+	    </dependency>
+	    <dependency>
+	      <groupId>com.google.http-client</groupId>
+	      <artifactId>google-http-client-jackson2</artifactId>
+	      <version>1.17.0-rc</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>android.support</groupId>
+	        <artifactId>compatibility-v4</artifactId>
+	        <version>18</version>
+	        <scope>system</scope>
+	        <systemPath>${android-sdk-path}/extras/android/support/v4/android-support-v4.jar</systemPath>
+	    </dependency>
+	    <dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>15.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jarsigner-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>signing</id>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+						<phase>package</phase>
+						<inherited>true</inherited>
+						<configuration>
+							<removeExistingSignatures>true</removeExistingSignatures>
+							<includes>
+								<include>**/*.apk</include>
+							</includes>
+							<keystore>${sign.keystore}</keystore>
+							<storepass>${sign.storepass}</storepass>
+							<keypass>${sign.keypass}</keypass>
+							<alias>${sign.alias}</alias>
+							<arguments>
+								<argument>-sigalg</argument>
+								<argument>MD5withRSA</argument>
+								<argument>-digestalg</argument>
+								<argument>SHA1</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>com.jayway.maven.plugins.android.generation2</groupId>
+				<artifactId>android-maven-plugin</artifactId>
+				<version>${android-maven-plugin-version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<genDirectory>${project.basedir}/gen</genDirectory>
+					<sdk>
+						<platform>${android-platform}</platform>
+						<path>${android-sdk-path}</path>
+					</sdk>
+					<undeployBeforeDeploy>true</undeployBeforeDeploy>
+					<proguard>
+						<skip>false</skip>
+					</proguard>
+					<zipalign>
+						<verbose>true</verbose>
+						<skip>false</skip>
+					</zipalign>
+				</configuration>
+				<executions>
+						<execution>
+								<id>alignApk</id>
+								<phase>package</phase>
+								<goals>
+										<goal>zipalign</goal>
+								</goals>
+						</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>${maven-eclipse-plugin-version}</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>true</downloadJavadocs>
+					<projectnatures>
+						<projectnature>org.eclipse.jdt.core.javanature</projectnature>
+						<projectnature>com.android.ide.eclipse.adt.AndroidNature</projectnature>
+					</projectnatures>
+
+					<buildcommands>
+						<buildcommand>org.eclipse.jdt.core.javabuilder</buildcommand>
+						<buildcommand>com.android.ide.eclipse.adt.ResourceManagerBuilder</buildcommand>
+						<buildcommand>com.android.ide.eclipse.adt.PreCompilerBuilder</buildcommand>
+						<buildcommand>com.android.ide.eclipse.adt.ApkBuilder</buildcommand>
+					</buildcommands>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<!-- the release profile does sign, proguard, zipalign ... but does not 
+				run instrumentation tests -->
+			<id>release</id>
+			<!-- via this activation the profile is automatically used when the release 
+				is done with the maven release plugin -->
+			<activation>
+                <activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	</profiles>
+</project>

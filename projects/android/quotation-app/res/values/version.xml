@@ -14,5 +14,5 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <resources>
-    <string name="version">1.2.0-BETA</string>
+    <string name="version">1.2.1-BETA</string>
 </resources>

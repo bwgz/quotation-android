@@ -35,4 +35,6 @@
 	<string name="title_attribution">"Atribución"</string>
 	<string name="title_terms_of_use">"Términos de uso"</string>
 	<string name="title_environment">"Medio ambiente"</string>
+	
+	<string name="initialization_message">Un momento mientras creamos las cosas.</string>
 </resources>

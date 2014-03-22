@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.bwgz.quotation.widget.picks.PicksView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/org.bwgz.quotation"
+    android:id="@+id/subject_picks"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:picks_numberOfColumns="@integer/subject_picks_number_of_columns"
+    app:picks_pickActivityClass="org.bwgz.quotation.activity.SubjectsActivity"
+    app:picks_title="@string/subject_picks_title" />

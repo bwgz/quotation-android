@@ -1,0 +1,6 @@
+<resources>
+	<integer name="navigation_grid_num_columns">3</integer>
+	<integer name="quotation_picks_number_of_columns">3</integer>
+	<integer name="author_picks_number_of_columns">6</integer>
+	<integer name="subject_picks_number_of_columns">6</integer>
+</resources>

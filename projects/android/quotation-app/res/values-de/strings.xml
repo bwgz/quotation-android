@@ -35,4 +35,6 @@
 	<string name="title_attribution">"Namensnennung"</string>
 	<string name="title_terms_of_use">"Nutzungsbedingungen"</string>
 	<string name="title_environment">"Umgebung"</string>
+	
+	<string name="initialization_message">Einen moment, während wir die dinge einrichten.</string>
 </resources>

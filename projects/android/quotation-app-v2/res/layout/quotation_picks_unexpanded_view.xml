@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<org.bwgz.quotation.widget.picks.PicksView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/org.bwgz.quotation"
+    android:id="@+id/quotation_picks"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:picks_numberOfColumns="@integer/quotation_picks_number_of_columns"
+    app:picks_numberOfPicks="@integer/quotation_picks_number_of_columns"
+    app:picks_seeMoreActivityClass="org.bwgz.quotation.activity.QuotationPicksActivity"
+    app:picks_subtitle="@string/quotation_picks_subtitle"
+    app:picks_title="@string/quotation_picks_title" />

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<resources>
+    <string name="ga_trackingId">UA-43948204-2</string>
+	<bool name="ga_autoActivityTracking">true</bool>
+	<bool name="ga_reportUncaughtExceptions">true</bool>
+  
+	<string name="org.bwgz.quotation.activity.LaunchActivity">Launch</string>
+	<string name="org.bwgz.quotation.activity.HomeActivity">Home</string>
+	
+	<string name="org.bwgz.quotation.activity.QuotationActivity">Quotation</string>
+	<string name="org.bwgz.quotation.activity.QuotationPicksActivity">Quotation Picks</string>
+	<string name="org.bwgz.quotation.activity.QuotationsActivity">Quotations</string>
+		
+	<string name="org.bwgz.quotation.activity.AuthorActivity">Author</string>
+	<string name="org.bwgz.quotation.activity.AuthorPicksActivity">Author Picks</string>
+	<string name="org.bwgz.quotation.activity.AuthorsActivity">Authors</string>
+				
+	<string name="org.bwgz.quotation.activity.SubjectActivity">Subject</string>
+	<string name="org.bwgz.quotation.activity.SubjectPicksActivity">Subject Picks</string>
+	<string name="org.bwgz.quotation.activity.SubjectsActivity">Subjects</string>
+
+	<string name="org.bwgz.quotation.activity.SearchResultsActivity">Search Results</string>
+		
+	<string name="org.bwgz.quotation.activity.SettingsActivity">Settings</string>
+</resources>

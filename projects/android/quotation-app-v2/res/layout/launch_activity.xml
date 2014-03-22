@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical" >
+
+	<ImageView
+	    android:id="@+id/image"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:adjustViewBounds="false"
+	    android:cropToPadding="false"
+	    android:scaleType="centerCrop"
+	    android:src="@drawable/winston_churchill" />
+
+	<LinearLayout
+	    android:id="@+id/quotation_layout"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_centerHorizontal="true"
+	    android:orientation="vertical"
+	    android:paddingBottom="100dp"
+	    android:paddingLeft="20dp"
+	    android:paddingRight="20dp" >
+
+	    <TextView
+	        android:id="@+id/quotation"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:text="Man will occasionally stumble over the truth, but most of the time he will pick himself up and continue on."
+	        android:textColor="@android:color/white"
+	        android:textStyle="bold|italic" />
+
+	    <TextView
+	        android:id="@+id/author"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="right"
+	        android:text="Winston Churchill"
+	        android:textColor="@android:color/white"
+	        android:textStyle="bold" />
+	</LinearLayout>
+
+</RelativeLayout>
+                         

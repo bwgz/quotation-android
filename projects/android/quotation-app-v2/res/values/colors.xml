@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="gray">#CCCCCC</color>
+    
+	<color name="palette_standard_accent_blue">#33B5E5</color>
+	<color name="palette_standard_accent_purple">#AA66CC</color>
+	<color name="palette_standard_accent_green">#99CC00</color>
+	<color name="palette_standard_accent_orange">#FFBB33</color>
+	<color name="palette_standard_accent_red">#FF4444</color>
+
+	<color name="palette_standard_accent_blue_dark">#0099CC</color>
+	<color name="palette_standard_accent_purple_dark">#9933CC</color>
+	<color name="palette_standard_accent_green_dark">#669900</color>
+	<color name="palette_standard_accent_orange_dark">#FF8800</color>
+	<color name="palette_standard_accent_red_dark">#CC0000</color>
+		
+	<color name="palette_standard_accent_blue_75">#BF33B5E5</color>
+	<color name="palette_standard_accent_purple_75">#BFAA66CC</color>
+	<color name="palette_standard_accent_green_75">#BF99CC00</color>
+	<color name="palette_standard_accent_orange_75">#BFFFBB33</color>
+	<color name="palette_standard_accent_red_75">#BFFF4444</color>
+	
+</resources>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res/org.bwgz.quotation"
+    android:id="@+id/home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	style="@style/Home">
+
+    <!-- As the main content view, the view below consumes the entire
+         space available using match_parent in both dimensions. -->
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		style="@style/Home">
+
+	    <ScrollView
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+	        android:layout_weight="1">
+	
+	        <LinearLayout
+	 			android:id="@+id/container"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:orientation="vertical"
+	    		style="@style/Home.Container">
+	            
+				<LinearLayout
+				    android:id="@+id/navigation"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:orientation="horizontal" >
+				
+			        <LinearLayout
+			            android:id="@+id/navigation_quotations"
+			            style="@style/Navigation.Quotations"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_weight="1"
+			            android:clickable="true"
+			            android:orientation="horizontal" >
+			
+			            <ImageView
+			                android:id="@+id/icon_view"
+							style="@style/Navigation.Image.Quotations"
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content" />
+			
+			            <TextView
+			                android:id="@+id/label_view"
+							style="@style/Navigation.Label.Quotations"
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content" />
+			        </LinearLayout>
+			
+			        <LinearLayout
+			            android:id="@+id/navigation_authors"
+			            style="@style/Navigation.Authors"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_weight="1"
+			            android:clickable="true"
+			            android:orientation="horizontal" >
+			
+			            <ImageView
+			                android:id="@+id/icon_view"
+							style="@style/Navigation.Image.Authors"
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content" />
+			
+			            <TextView
+			                android:id="@+id/label_view"
+							style="@style/Navigation.Label.Authors"
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content" />
+			        </LinearLayout>
+			
+			        <LinearLayout
+			            android:id="@+id/navigation_subjects"
+			            style="@style/Navigation.Subjects"
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_weight="1"
+			            android:clickable="true"
+			            android:orientation="horizontal" >
+			
+			            <ImageView
+			                android:id="@+id/icon_view"
+							style="@style/Navigation.Image.Subjects"
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content" />
+			
+			            <TextView
+			                android:id="@+id/label_view"
+							style="@style/Navigation.Label.Subjects"
+			                android:layout_width="wrap_content"
+			                android:layout_height="wrap_content" />
+			        </LinearLayout>
+				
+				</LinearLayout>
+					
+				<org.bwgz.quotation.widget.picks.PicksView
+				    android:id="@+id/quotation_picks"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    app:picks_numberOfColumns="@integer/quotation_picks_number_of_columns"
+				    app:picks_numberOfPicks="@integer/quotation_picks_number_of_columns"
+				    app:picks_seeMoreActivityClass="org.bwgz.quotation.activity.QuotationPicksActivity"
+				    app:picks_subtitle="@string/quotation_picks_subtitle"
+				    app:picks_title="@string/quotation_picks_title" />
+	
+				<org.bwgz.quotation.widget.picks.PicksView
+				    android:id="@+id/author_picks"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    app:picks_numberOfColumns="@integer/author_picks_number_of_columns"
+				    app:picks_numberOfPicks="@integer/author_picks_number_of_columns"
+				    app:picks_seeMoreActivityClass="org.bwgz.quotation.activity.AuthorPicksActivity"
+				    app:picks_subtitle="@string/author_picks_subtitle"
+				    app:picks_title="@string/author_picks_title" />
+				
+				<org.bwgz.quotation.widget.picks.PicksView
+				    android:id="@+id/subject_picks"
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    app:picks_numberOfColumns="@integer/subject_picks_number_of_columns"
+				    app:picks_numberOfPicks="@integer/subject_picks_number_of_columns"
+				    app:picks_seeMoreActivityClass="org.bwgz.quotation.activity.SubjectPicksActivity"
+				    app:picks_subtitle="@string/subject_picks_subtitle"
+				    app:picks_title="@string/subject_picks_title" />
+	
+			</LinearLayout>
+	        
+	    </ScrollView>
+				   
+		<com.google.android.gms.ads.AdView
+		    android:id="@+id/adView"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="bottom"
+			android:background="#F5F7F4"
+		    ads:adSize="SMART_BANNER"
+		    ads:adUnitId="@string/ad_unit_id"/>
+		
+	</LinearLayout>
+    
+    <!--
+         android:layout_gravity="start" tells DrawerLayout to treat
+         this as a sliding drawer.
+    -->
+    <ListView
+        android:id="@+id/drawer"
+		style="@style/Home.Drawer"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start" >
+	</ListView>
+
+</android.support.v4.widget.DrawerLayout>
+                         

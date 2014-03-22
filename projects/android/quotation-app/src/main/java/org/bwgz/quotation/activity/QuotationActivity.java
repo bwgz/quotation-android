@@ -326,12 +326,6 @@ public class QuotationActivity extends SherlockFragmentActivity implements OnLoa
 	}
     
 	@Override
-	public void onStart() {
-		super.onStart();
-	    EasyTracker.getInstance(this).activityStart(this);
-	}
-	  
-	@Override
     protected void onResume() {
     	super.onResume();
     	

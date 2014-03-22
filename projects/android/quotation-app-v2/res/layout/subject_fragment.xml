@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical" 
+	android:padding="10dp"
+	android:background="#cccccc" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <com.android.volley.toolbox.NetworkImageView
+            android:id="@+id/subject_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="4dp"
+            android:scaleType="center"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/subject_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="4dp"
+            android:layout_marginTop="4dp"
+            android:background="@android:color/darker_gray" />
+        
+    </LinearLayout>
+	
+	<ScrollView
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+        
+	    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:orientation="vertical" >
+		    	
+		    <LinearLayout
+				android:id="@+id/subject_description_layout"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical"
+				android:visibility="gone">
+	
+			    <RelativeLayout
+			        android:id="@+id/subject_description_layout_short"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content">
+			
+			        <TextView
+			       		android:id="@+id/subject_description_short"
+			            android:layout_width="match_parent"
+			            android:layout_height="wrap_content"
+				        android:layout_alignParentLeft="true"
+				        android:layout_alignParentTop="true"
+			            android:ellipsize="end"
+			            android:fontFamily="sans-serif"
+			            android:maxLines="2"
+			            android:textSize="14sp" />
+	
+			        <ImageView
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_alignParentBottom="true"
+			            android:layout_alignParentRight="true"
+			            android:layout_below="@id/subject_description_short"
+			            android:gravity="right"
+			            android:src="@drawable/ic_action_expand" />
+			        
+			    </RelativeLayout>
+			    
+			    <RelativeLayout
+			        android:id="@+id/subject_description_layout_full"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:visibility="gone" >
+			
+			        <TextView
+			       		android:id="@+id/subject_description_full"
+			            android:layout_width="match_parent"
+			            android:layout_height="wrap_content"
+				        android:layout_alignParentLeft="true"
+				        android:layout_alignParentTop="true"
+			            android:fontFamily="sans-serif"
+			            android:textSize="14sp" />
+			
+			        <ImageView
+			            android:layout_width="wrap_content"
+			            android:layout_height="wrap_content"
+			            android:layout_alignParentBottom="true"
+			            android:layout_alignParentRight="true"
+			            android:layout_below="@id/subject_description_full"
+			            android:gravity="right"
+			            android:src="@drawable/ic_action_collapse" />
+			        
+			    </RelativeLayout>
+
+			    <View
+			        android:layout_width="match_parent"
+			        android:layout_height="1dp"
+			        android:layout_marginBottom="4dp"
+			        android:layout_marginTop="4dp"
+			        android:background="@android:color/darker_gray" />
+	
+			</LinearLayout>
+
+	    </LinearLayout>
+		
+	</ScrollView>
+
+	<GridView
+	    android:id="@+id/quotations"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:horizontalSpacing="8dp"
+	    android:numColumns="@integer/quotation_picks_number_of_columns"
+	    android:stretchMode="columnWidth"
+	    android:verticalSpacing="8dp" />
+	
+</LinearLayout>

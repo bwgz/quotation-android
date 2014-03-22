@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="Divider">
+	</style>
+    
+	<style name="Home">
+        <item name="android:background">@color/gray</item>
+	</style>
+	<style name="Home.Container" parent="@style/Home">
+        <item name="android:padding">8dp</item>
+	</style>
+	<style name="Home.Drawer" parent="@style/Home">
+         <item name="android:layout_width">240dp</item>
+         <item name="android:choiceMode">singleChoice</item>
+   	</style>
+			
+	<style name="Navigation">
+	</style>
+
+	<style name="Navigation.Layout" parent="@style/Navigation">
+        <item name="android:layout_margin">4dp</item>
+	</style>
+
+	<style name="Navigation.Quotations" parent="@style/Navigation.Layout">
+        <item name="android:background">@drawable/green_navigation_selector</item>
+	</style>
+	<style name="Navigation.Authors" parent="@style/Navigation.Layout">
+        <item name="android:background">@drawable/red_navigation_selector</item>
+	</style>
+	<style name="Navigation.Subjects" parent="@style/Navigation.Layout">
+        <item name="android:background">@drawable/blue_navigation_selector</item>
+	</style>
+	
+	<style name="Navigation.Item" parent="@style/Navigation">
+	    <item name="android:layout_gravity">center_vertical</item>
+	</style>
+		
+	<style name="Navigation.Image"  parent="@style/Navigation.Item">
+	    <item name="android:padding">8dp</item>
+	</style>
+	
+	<style name="Navigation.Image.Quotations" parent="@style/Navigation.Image">
+		<item name="android:src">@drawable/ic_bubble_white</item>
+	</style>
+	<style name="Navigation.Image.Authors" parent="@style/Navigation.Image">
+		<item name="android:src">@drawable/ic_users</item>
+	</style>
+	<style name="Navigation.Image.Subjects" parent="@style/Navigation.Image">
+		<item name="android:src">@drawable/ic_stack</item>
+	</style>
+
+	<style name="Navigation.Label" parent="@style/Navigation.Item">
+	    <item name="android:textColor">@android:color/white</item>
+	</style>
+
+	<style name="Navigation.Label.Quotations" parent="@style/Navigation.Label">
+	    <item name="android:text">@string/navigation_quotations</item>
+	</style>
+	<style name="Navigation.Label.Authors" parent="@style/Navigation.Label">
+	    <item name="android:text">@string/navigation_authors</item>
+	</style>
+	<style name="Navigation.Label.Subjects" parent="@style/Navigation.Label">
+	    <item name="android:text">@string/navigation_subjects</item>
+	</style>
+										
+	<style name="PicksView">
+ 	</style>
+	
+	<style name="PicksView.Header" parent="@style/PicksView">
+        <item name="android:padding">4dp</item>
+	</style>
+		<style name="PicksView.Title" parent="@style/PicksView">
+        <item name="android:textSize">22sp</item>
+	</style>
+	<style name="PicksView.Subtitle" parent="@style/PicksView">
+        <item name="android:textSize">14sp</item>
+	</style>
+	<style name="PicksView.SeeMore" parent="@style/PicksView">
+        <item name="android:padding">5dp</item>
+        <item name="android:text">@string/see_more</item>
+		<item name="android:textColor">@android:color/white</item>
+	    <item name="android:background">@drawable/green_navigation_selector</item>
+	</style>
+	<style name="PicksView.CardView" parent="@style/PicksView">
+        <item name="android:horizontalSpacing">8dp</item>
+        <item name="android:verticalSpacing">8dp</item>
+	</style>
+	
+   	<style name="PickView">
+	</style>
+	
+	<style name="PickView.Quotation" parent="@style/PickView">
+        <item name="android:background">@drawable/green_list_selector</item>
+	</style>
+	<style name="PickView.Author" parent="@style/PickView">
+        <item name="android:background">@drawable/red_list_selector</item>
+	</style>
+	<style name="PickView.Subject" parent="@style/PickView">
+        <item name="android:background">@drawable/blue_list_selector</item>
+	</style>
+		
+</resources>

@@ -1,0 +1,13 @@
+<resources>
+    <declare-styleable name="Quotation">
+        <attr name="picks_title" format="string" />
+        <attr name="picks_subtitle" format="integer" />
+		<attr name="picks_seeMoreActivityClass" format="string" />
+		<attr name="picks_numberOfRows" format="integer" />
+		<attr name="picks_numberOfColumns" format="integer" />
+		<attr name="picks_numberOfPicks" format="integer" />
+		<attr name="picks_pickActivityClass" format="string" />
+		<attr name="size" format="integer" />
+	</declare-styleable>
+	
+</resources>

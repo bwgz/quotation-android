@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/quotation_pick_view"
+    style="@style/PickView.Quotation"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="4dp" >
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/author_image"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:paddingRight="4dp"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/bookmark"
+        android:layout_toRightOf="@+id/author_image"
+        android:orientation="vertical"
+        android:paddingRight="4dp" >
+
+        <TextView
+            android:id="@+id/quotation_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-thin"
+            android:maxLines="4"
+            android:minLines="4"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/author_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-light"
+            android:maxLines="1"
+            android:minLines="1"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+    </LinearLayout>
+
+    <CheckBox
+        android:id="@+id/bookmark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerVertical="false"
+        android:button="@drawable/bookmark"
+        android:gravity="right" />
+
+</RelativeLayout>

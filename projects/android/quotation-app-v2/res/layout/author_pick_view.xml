@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/author_pick_view"
+	style="@style/PickView.Author"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:descendantFocusability="blocksDescendants" >
+
+	<RelativeLayout
+		android:id="@+id/image_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top" >
+        
+	    <com.android.volley.toolbox.NetworkImageView
+	        android:id="@+id/author_image"
+	        android:layout_width="150dp"
+	        android:layout_height="150dp"
+	        android:layout_alignParentTop="true" />
+	    
+        <TextView
+            android:id="@+id/author_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+			android:background="@color/palette_standard_accent_red_75"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif"
+            android:maxLines="2"
+            android:minLines="2"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textColor="@android:color/white"
+            android:textSize="14sp" />
+	    	    
+	</RelativeLayout>
+    
+	<RelativeLayout
+	    android:id="@+id/bottom_bar"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:paddingTop="4dp" >
+        
+		<TextView
+		    android:id="@+id/quotation_count"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+			android:background="@drawable/ic_bubble_green"
+		    android:layout_alignParentLeft="true"
+	        android:layout_centerVertical="true"
+		    android:gravity="center" />
+        
+        <CheckBox
+            android:id="@+id/bookmark"
+			android:button="@drawable/bookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+ 	        android:layout_centerVertical="true"/>
+        
+    </RelativeLayout>
+
+</LinearLayout>

@@ -18,12 +18,13 @@
 	<modules>
 		<module>quotation-content-provider</module>
 		<module>quotation-app</module>
+		<module>quotation-app-v2</module>
 		<module>quotation-instrumentation</module>
 	</modules>
 	
 	<properties>
 		<android-version>4.1.1.4</android-version>
-		<google-admod-version>6.4.1</android-version>
+		<google-admod-version>6.4.1</google-admod-version>
 		
 		<android-maven-plugin-version>3.6.1</android-maven-plugin-version>
 		<android-platform>18</android-platform>
