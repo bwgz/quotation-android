@@ -1,4 +1,4 @@
-quotation
+Quotation
 =========
 
-A set of projects for a Quote of the Day application on mobile devices.
+A set of projects for an Android Quotation application.
