@@ -22298,6 +22298,7 @@ org.bwgz.quotation.R$raw: int authors
 org.bwgz.quotation.R$raw: int authors_demo
 org.bwgz.quotation.R$raw: int legal
 org.bwgz.quotation.R$raw: int quotations
+org.bwgz.quotation.R$raw: int quotations_demo
 org.bwgz.quotation.R$raw: int subjects
 org.bwgz.quotation.R$raw: int subjects_demo
 org.bwgz.quotation.R$raw: int termsofuse

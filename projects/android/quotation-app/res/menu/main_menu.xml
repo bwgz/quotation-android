@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@+id/actionbar_new" android:title="@string/actionbar_new" android:titleCondensed="@string/actionbar_new" android:icon="@drawable/navigation_refresh" android:showAsAction="ifRoom"/>
-    <item android:id="@+id/actionbar_back" android:title="@string/actionbar_back" android:titleCondensed="@string/actionbar_back" android:icon="@drawable/navigation_back" android:showAsAction="ifRoom"/>
-	<item android:id="@+id/actionbar_forward" android:title="@string/actionbar_forward" android:titleCondensed="@string/actionbar_forward" android:icon="@drawable/navigation_forward" android:showAsAction="ifRoom"/>
-	<item android:id="@+id/actionbar_share" android:title="@string/actionbar_share" android:titleCondensed="@string/actionbar_share" android:icon="@drawable/social_share" android:showAsAction="ifRoom"/>
-    <item android:id="@+id/settings" android:title="@string/menu_settings" android:titleCondensed="@string/menu_settings" android:icon="@android:drawable/ic_menu_info_details"/>
-</menu>

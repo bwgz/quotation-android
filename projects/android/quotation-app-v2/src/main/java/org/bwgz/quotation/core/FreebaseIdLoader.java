@@ -50,11 +50,12 @@ public class FreebaseIdLoader {
     	if (instance == null) {
     		instance = new FreebaseIdLoader(context);
 	 		try {
-	 			instance.load(instance.quotations, R.raw.quotations);
-	 			//instance.load(instance.authors, R.raw.authors_demo);
-	 			//instance.load(instance.subjects, R.raw.subjects_demo);
-	 			instance.load(instance.authors, R.raw.authors);
-	 			instance.load(instance.subjects, R.raw.subjects);
+	 			instance.load(instance.quotations, R.raw.quotations_demo);
+	 			instance.load(instance.authors, R.raw.authors_demo);
+	 			instance.load(instance.subjects, R.raw.subjects_demo);
+	 			//instance.load(instance.quotations, R.raw.quotations);
+	 			//instance.load(instance.authors, R.raw.authors);
+	 			//instance.load(instance.subjects, R.raw.subjects);
 			} catch (IOException e) {
 				Log.e(TAG, e.getLocalizedMessage());
 			}

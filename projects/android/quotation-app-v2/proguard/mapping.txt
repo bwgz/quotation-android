@@ -32591,6 +32591,7 @@ org.bwgz.quotation.R$raw -> org.bwgz.quotation.R$raw:
     int authors_demo -> authors_demo
     int legal -> legal
     int quotations -> quotations
+    int quotations_demo -> quotations_demo
     int subjects -> subjects
     int subjects_demo -> subjects_demo
     int termsofuse -> termsofuse
