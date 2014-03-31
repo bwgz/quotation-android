@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 
+	Copyright (C) 2014 bwgz.org
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License version 3 as 
+	published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="202"
+	android:versionName="2.0.2-BETA"
+	package="org.bwgz.quotation">
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    		
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:name="org.bwgz.quotation.app.QuotationApplication"
+        android:label="@string/application_name"
+        android:icon="@drawable/ic_launcher"
+		android:theme="@android:style/Theme.Holo.Light">
+  
+		<meta-data
+			android:name="android.app.default_searchable"
+			android:value="org.bwgz.quotation.activity.SearchResultsActivity"/>
+        
+        <activity
+			android:name="org.bwgz.quotation.activity.LaunchActivity"
+			android:label="@string/application_name"
+			android:theme="@android:style/Theme.Holo.NoActionBar"
+			android:noHistory="true">
+   			<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+		    </intent-filter>
+   		</activity>
+		<activity
+			android:name="org.bwgz.quotation.activity.HomeActivity"
+			android:label="@string/application_name">
+        </activity>
+        
+		<activity
+			android:name="org.bwgz.quotation.activity.QuotationsActivity"
+			android:label="@string/quotations_title">
+		</activity>
+		<activity
+			android:name="org.bwgz.quotation.activity.QuotationPicksActivity"
+			android:label="@string/quotations_title"
+   			android:parentActivityName="org.bwgz.quotation.activity.HomeActivity" >
+	        <!-- The meta-data element is needed for versions lower than 4.1 -->
+	        <meta-data
+	            android:name="android.support.PARENT_ACTIVITY"
+	            android:value="org.bwgz.quotation.activity.HomeActivity" />
+        </activity>
+		<activity
+			android:name="org.bwgz.quotation.activity.QuotationActivity"
+			android:label="@string/application_name">
+             <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="vnd.android.cursor.item/vnd.org.bwgz.quotation.quotation" />
+            </intent-filter>
+		</activity>
+        
+		<activity
+			android:name="org.bwgz.quotation.activity.AuthorsActivity"
+			android:label="@string/authors_title">
+        </activity>
+		<activity
+			android:name="org.bwgz.quotation.activity.AuthorPicksActivity"
+			android:label="@string/authors_title"
+   			android:parentActivityName="org.bwgz.quotation.activity.HomeActivity" >
+	        <!-- The meta-data element is needed for versions lower than 4.1 -->
+	        <meta-data
+	            android:name="android.support.PARENT_ACTIVITY"
+	            android:value="org.bwgz.quotation.activity.HomeActivity" />
+        </activity>
+		<activity
+			android:name="org.bwgz.quotation.activity.AuthorActivity"
+			android:label="@string/authors_title">
+        </activity>
+		
+		<activity
+			android:name="org.bwgz.quotation.activity.SubjectsActivity"
+			android:label="@string/subjects_title">
+        </activity>
+		<activity
+			android:name="org.bwgz.quotation.activity.SubjectListActivity"
+			android:label="@string/application_name">
+        </activity>
+		<activity
+			android:name="org.bwgz.quotation.activity.SubjectPicksActivity"
+			android:label="@string/subjects_title"
+   			android:parentActivityName="org.bwgz.quotation.activity.HomeActivity" >
+	        <!-- The meta-data element is needed for versions lower than 4.1 -->
+	        <meta-data
+	            android:name="android.support.PARENT_ACTIVITY"
+	            android:value="org.bwgz.quotation.activity.HomeActivity" />
+        </activity>
+		<activity
+			android:name="org.bwgz.quotation.activity.SubjectActivity"
+			android:label="@string/subjects_title">
+        </activity>
+		
+		<activity
+			android:name="org.bwgz.quotation.activity.SearchResultsActivity"
+			android:label="@string/application_name"
+			android:launchMode="singleTop">
+			<meta-data
+				android:name="android.app.searchable"
+	           	android:resource="@xml/searchable" />
+  	        <meta-data
+	            android:name="android.support.PARENT_ACTIVITY"
+	            android:value="org.bwgz.quotation.activity.HomeActivity" />
+		    <intent-filter>
+		        <action android:name="android.intent.action.SEARCH" />
+		    </intent-filter>
+		</activity>
+		
+        <activity android:name="org.bwgz.android.environment.ConfigurationActivity"/>
+		<activity android:name="org.bwgz.android.environment.EnvironmentActivity"/>
+        <activity android:name="org.bwgz.android.environment.DisplayActivity"/>
+        <activity android:name="org.bwgz.android.environment.OperatingSystemActivity"/>
+        <activity android:name="org.bwgz.android.environment.SystemActivity"/>
+        <activity android:name="org.bwgz.android.environment.ConnectivityActivity"/>
+        <activity android:name="org.bwgz.android.environment.NetworkInfoActivity"/>
+        <activity android:name="org.bwgz.quotation.activity.AttributionActivity" />
+        <activity android:name="org.bwgz.quotation.activity.LegalActivity" />
+        <activity android:name="org.bwgz.quotation.activity.SettingsActivity" />
+        <activity android:name="org.bwgz.quotation.activity.TermsOfUseActivity" />
+        
+		<activity android:name="com.google.android.gms.ads.AdActivity"
+			android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
+		<meta-data android:name="com.google.android.gms.version"
+			android:value="@integer/google_play_services_version" />
+		
+		<provider
+			android:name="org.bwgz.quotation.content.provider.QuotationContentProvider"
+			android:authorities="org.bwgz.quotation"
+			android:exported="true" >
+		</provider>
+		
+		<service
+            android:name="org.bwgz.quotation.service.QuotationService"
+			android:exported="false" />
+		
+		<service
+            android:name="org.bwgz.quotation.content.provider.QuotationSyncService"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+				android:name="android.content.SyncAdapter"
+				android:resource="@+xml/syncadapter" />
+		</service>
+		
+		<service
+            android:name="org.bwgz.quotation.content.provider.AccountAuthenticatorService"
+            android:exported="true"
+            android:process=":auth" >
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@+xml/authenticator" />
+		</service>
+
+		<receiver android:name="org.bwgz.quotation.service.QuotationAlarmReceiver" android:enabled="true">
+			<intent-filter>
+				<action android:name="android.intent.action.BOOT_COMPLETED"></action>
+			</intent-filter>
+		</receiver>
+		
+		<receiver android:name="org.bwgz.quotation.appwidget.SmallQuotationWidgetProvider" android:label="@+string/small_widget_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@+xml/small_quote_widget" />
+        </receiver>
+        
+		<receiver android:name="org.bwgz.quotation.appwidget.LargeQuotationWidgetProvider" android:label="@+string/large_widget_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@+xml/large_quote_widget" />
+		</receiver>
+		
+		<service android:name="org.bwgz.quotation.service.QuotationWidgetService" />
+						
+</application>
+</manifest>
