@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<style name="Divider">
-	</style>
-    
-	<style name="Home">
+    <style name="Quotation" parent="android:Theme.Holo.Light">
+    </style>
+
+    <style name="Fragment" parent="@style/Quotation">
+    </style>
+
+    <style name="Fragment.Layout" parent="@style/Fragment">
+        <item name="android:background">@color/gray</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="Home" parent="@style/Quotation">
         <item name="android:background">@color/gray</item>
 	</style>
 	<style name="Home.Container" parent="@style/Home">

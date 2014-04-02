@@ -21,13 +21,14 @@ import java.util.HashMap;
 import org.bwgz.android.common.TwoLineItem;
 
 import android.os.Build;
+import android.util.SparseArray;
 
 public class OperatingSystemTwoLineList extends ArrayList<TwoLineItem> {
 	private static final long serialVersionUID = -8754999754851526606L;
 	
 	private static int JELLY_BEAN_MR1 = 17;
 	
-	private static final HashMap<Integer, String> map = new HashMap<Integer, String>();
+	private static final SparseArray<String> map = new SparseArray<String>();
 	
 	{
 		map.put(Integer.valueOf(Build.VERSION_CODES.BASE), "Base");

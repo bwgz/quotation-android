@@ -11,12 +11,13 @@ import android.os.Bundle;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.util.Log;
+import android.util.SparseArray;
 
 public class CursorLoaderManagerFragment extends VolleyFragment implements CursorLoaderManager {
 	static public final String TAG = CursorLoaderManagerFragment.class.getSimpleName();
 
     private int loaderId;
-    private Map<Integer, CursorLoaderListener> loaderIdMap;
+    private SparseArray<CursorLoaderListener> loaderIdMap;
 	
     protected synchronized int getNextLoaderId() {
 		return loaderId++;
@@ -27,7 +28,7 @@ public class CursorLoaderManagerFragment extends VolleyFragment implements Curso
     	super.onCreate(savedInstanceState);
 		Log.d(TAG, String.format("onCreate - savedInstanceState: %s", savedInstanceState));
 		
-        loaderIdMap = new HashMap<Integer, CursorLoaderListener>();
+        loaderIdMap = new SparseArray<CursorLoaderListener>();
     }
     
 	@Override
