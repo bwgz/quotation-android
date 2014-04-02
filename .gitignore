@@ -2,7 +2,7 @@
 ## Project Exclusions
 #################
 
-projects/v2/.gradle/
+**/.gradle/
 release.bat
 lint.xml
 
