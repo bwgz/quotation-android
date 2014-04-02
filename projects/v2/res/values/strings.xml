@@ -18,21 +18,18 @@
     <string name="small_widget_name">Quotation (Mini)</string>
     <string name="large_widget_name">Quotation (Full)</string>
     
-	<string name="loading_quote">Loading quotation &#8230;</string>
-    
+	<string name="loading_quotation">Loading quotation &#8230;</string>
+    <string name="loading_author">Loading author &#8230;</string>
+    <string name="loading_subject">Loading subject &#8230;</string>
+
    	<string name="launch_message">One moment while we setup things.</string>
 	<string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
-	
-    <string name="actionbar_share">Share</string>
-    
+
 	<string name="menu_search">Search</string>
 	<string name="menu_settings">Settings</string>
 	<string name="menu_bookmark">Bookmark</string>
 			
-	<string name="view_label">View</string>
-	<string name="filter_label">Filter</string>
- 
 	<string name="navigation_quotations">QUOTATIONS</string>
 	<string name="navigation_authors">AUTHORS</string>
 	<string name="navigation_subjects">SUBJECTS</string>
@@ -92,19 +89,15 @@
 	<string name="search_author">By Author</string>
 	<string name="search_subject">By Subject</string>
         
-	<string name="search_hint">search hint</string>
-	
 	<string name="search_results_label">Results</string>
     
 	<string name="label_source">Source:</string>
 	<string name="label_spoken_by_character">Character:</string>
 		
-	<string name="message_searching">Searching &#8230;</string>
-	
 	<string name="no_results">No results</string>
-	
-	<string name="bookmark">Bookmark</string>
-	
+
 	<string name="share">Share</string>
-		
+
+    <string name="bookmark">Bookmark</string>
+
 </resources>

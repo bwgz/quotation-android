@@ -25,7 +25,7 @@
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/image"
         android:ellipsize="end"
-        android:text="@string/loading_quote"
+        android:text="@string/loading_quotation"
         android:textColor="@android:color/black"
         android:textSize="14sp"
         android:textStyle="italic" />

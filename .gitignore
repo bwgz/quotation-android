@@ -2,13 +2,16 @@
 ## Project Exclusions
 #################
 
-projects/documentation/
-
-projects/android/JakeWharton-ActionBarSherlock-c47975f/
-projects/android/quotation-app/proguard/
-projects/android/quotation-app-v2/proguard/
+projects/v2/.gradle/
 release.bat
 lint.xml
+
+#################
+## Android Studio
+#################
+
+*.iml
+.idea
 
 #################
 ## Eclipse

@@ -102,11 +102,7 @@
 			android:name="org.bwgz.quotation.activity.SubjectsActivity"
 			android:label="@string/subjects_title">
         </activity>
-		<activity
-			android:name="org.bwgz.quotation.activity.SubjectListActivity"
-			android:label="@string/application_name">
-        </activity>
-		<activity
+        <activity
 			android:name="org.bwgz.quotation.activity.SubjectPicksActivity"
 			android:label="@string/subjects_title"
    			android:parentActivityName="org.bwgz.quotation.activity.HomeActivity" >

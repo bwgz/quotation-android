@@ -34,7 +34,7 @@
 	            android:layout_height="wrap_content"
 	            android:fontFamily="sans-serif"
 				android:textStyle="bold"
-	            android:text="Loading author ..."
+                android:text="@string/loading_author"
 	            android:textSize="18sp" />
  
 	        <TextView
