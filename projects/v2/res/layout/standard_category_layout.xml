@@ -11,7 +11,8 @@
 	<android.support.v4.view.ViewPager
 	    android:id="@+id/pager_view"
 	    android:layout_width="match_parent"
-	    android:layout_height="match_parent" />
+	    android:layout_height="match_parent"
+        style="@style/Fragment"/>
 
     <!--
          android:layout_gravity="start" tells DrawerLayout to treat

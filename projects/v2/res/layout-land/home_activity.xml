@@ -5,8 +5,7 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-	style="@style/Home">
+    android:layout_height="match_parent">
 
     <!-- As the main content view, the view below consumes the entire
          space available using match_parent in both dimensions. -->

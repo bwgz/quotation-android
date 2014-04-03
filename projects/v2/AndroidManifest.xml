@@ -36,7 +36,7 @@
         android:name="org.bwgz.quotation.app.QuotationApplication"
         android:label="@string/application_name"
         android:icon="@drawable/ic_launcher"
-		android:theme="@android:style/Theme.Holo.Light">
+		android:theme="@style/Quotation">
   
 		<meta-data
 			android:name="android.app.default_searchable"
