@@ -73,28 +73,26 @@ public class QuotationPicksCursorAdapter extends PicksCursorAdapter {
 		viewHolder.bookmark = (CheckBox) view.findViewById(R.id.bookmark);
 		view.setTag(viewHolder);
 		
-		String id = cursor.getString(cursor.getColumnIndex(Quotation._ID));
-		Log.d(TAG, String.format("newView - view: %s  id: %s", view, id));
-		
-		if (viewHolder.bookmark != null) {
-			viewHolder.bookmark.setOnClickListener(new BookmarkOnClickListener(context, BookmarkQuotation.withAppendedId(id), BookmarkQuotation.BOOKMARK_ID, id));
-		}
-		
-		if (viewHolder.author_image != null) {
-			viewHolder.author_image.setImageResource(R.drawable.pick_image_holder);
-			viewHolder.author_image.setDefaultImageResId(R.drawable.pick_image_holder);
-		}
-		
 		return view;
 	}
 
 	@Override
 	public void bindView(View view, Context context, Cursor cursor) {
 		Log.d(TAG, String.format("bindView - view: %s  context: %s  cursor: %s (%d)", view, context, cursor, cursor.getCount()));
-		Log.d(TAG, String.format("bindView - checkBox: %s  text: %s", cursor.getString(cursor.getColumnIndex(BookmarkQuotation.BOOKMARK_ID)), cursor.getString(cursor.getColumnIndex(Quotation.QUOTATION))));
+		Log.d(TAG, String.format("bindView - id: %s  checkBox: %s  text: %s", cursor.getString(cursor.getColumnIndex(Quotation._ID)), cursor.getString(cursor.getColumnIndex(BookmarkQuotation.BOOKMARK_ID)), cursor.getString(cursor.getColumnIndex(Quotation.QUOTATION))));
 		
 		ViewHolder viewHolder = (ViewHolder) view.getTag();
-		setTextView(viewHolder.quotation_text, cursor.getString(cursor.getColumnIndex(Quotation.QUOTATION)));
+        if (viewHolder.bookmark != null) {
+            String id = cursor.getString(cursor.getColumnIndex(Quotation._ID));
+            viewHolder.bookmark.setOnClickListener(new BookmarkOnClickListener(context, BookmarkQuotation.withAppendedId(id), BookmarkQuotation.BOOKMARK_ID, id));
+        }
+
+        if (viewHolder.author_image != null) {
+            viewHolder.author_image.setImageResource(R.drawable.pick_image_holder);
+            viewHolder.author_image.setDefaultImageResId(R.drawable.pick_image_holder);
+        }
+
+        setTextView(viewHolder.quotation_text, cursor.getString(cursor.getColumnIndex(Quotation.QUOTATION)));
 		setCheckBox(viewHolder.bookmark, cursor.getString(cursor.getColumnIndex(BookmarkQuotation.BOOKMARK_ID)) != null);
 		setAuthorName(viewHolder.author_name, cursor.getString(cursor.getColumnIndex(Quotation.AUTHOR_NAMES)));
 		setNetworkImageView(viewHolder.author_image, cursor.getString(cursor.getColumnIndex(Quotation.AUTHOR_IMAGE_IDS)));

@@ -41,7 +41,7 @@ public class BookmarkOnClickListener implements OnClickListener {
 	public void onClick(View view) {
 		Log.d(TAG, String.format("onClick - view: %s ", view));
 		CheckBox checkBox = (CheckBox) view;
-		Log.d(TAG, String.format("onClick - isChecked: %s ", checkBox.isChecked()));
+		Log.d(TAG, String.format("onClick - uri: %s  isChecked: %s ", uri, checkBox.isChecked()));
 		
 		if (checkBox.isChecked()) {
 		    ContentValues values = new ContentValues();

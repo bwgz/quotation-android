@@ -1,8 +1,8 @@
 package org.bwgz.quotation.adapter;
 
 import org.bwgz.quotation.R;
+import org.bwgz.quotation.content.provider.QuotationContract;
 import org.bwgz.quotation.content.provider.QuotationContract.BookmarkPerson;
-import org.bwgz.quotation.content.provider.QuotationContract.BookmarkQuotation;
 import org.bwgz.quotation.content.provider.QuotationContract.Person;
 
 import android.content.Context;
@@ -53,27 +53,26 @@ public class AuthorPicksCursorAdapter extends PicksCursorAdapter {
 		viewHolder.bookmark = (CheckBox) view.findViewById(R.id.bookmark);
 		view.setTag(viewHolder);
 
-		String id = cursor.getString(cursor.getColumnIndex(Person._ID));
-		Log.d(TAG, String.format("newView - view: %s  id: %s", view, id));
-
-		if (viewHolder.bookmark != null) {
-			viewHolder.bookmark.setOnClickListener(new BookmarkOnClickListener(context, BookmarkPerson.withAppendedId(id), BookmarkQuotation.BOOKMARK_ID, id));
-		}
-
-		if (viewHolder.author_image != null) {
-			viewHolder.author_image.setImageResource(R.drawable.pick_image_holder);
-			viewHolder.author_image.setDefaultImageResId(R.drawable.pick_image_holder);
-		}
-
 		return view;
 	}
 	
 	@Override
 	public void bindView(View view, Context context, Cursor cursor) {
-		Log.d(TAG, String.format("bindView - view: %s  context: %s  cursor: %s (%d)", view, context, cursor, cursor.getCount()));
-		
+        Log.d(TAG, String.format("bindView - view: %s  context: %s  cursor: %s (%d)", view, context, cursor, cursor.getCount()));
+        Log.d(TAG, String.format("bindView - id: %s  checkBox: %s  name: %s", cursor.getString(cursor.getColumnIndex(Person._ID)), cursor.getString(cursor.getColumnIndex(BookmarkPerson.BOOKMARK_ID)), cursor.getString(cursor.getColumnIndex(Person.NAME))));
+
 		ViewHolder viewHolder = (ViewHolder) view.getTag();
-		setTextView(viewHolder.author_name, cursor.getString(cursor.getColumnIndex(Person.NAME)));
+        if (viewHolder.bookmark != null) {
+            String id = cursor.getString(cursor.getColumnIndex(Person._ID));
+            viewHolder.bookmark.setOnClickListener(new BookmarkOnClickListener(context, BookmarkPerson.withAppendedId(id), BookmarkPerson.BOOKMARK_ID, id));
+        }
+
+        if (viewHolder.author_image != null) {
+            viewHolder.author_image.setImageResource(R.drawable.pick_image_holder);
+            viewHolder.author_image.setDefaultImageResId(R.drawable.pick_image_holder);
+        }
+
+        setTextView(viewHolder.author_name, cursor.getString(cursor.getColumnIndex(Person.NAME)));
 		setTextView(viewHolder.author_description, cursor.getString(cursor.getColumnIndex(Person.DESCRIPTION)));
 		setTextView(viewHolder.author_notable_for, cursor.getString(cursor.getColumnIndex(Person.NOTABLE_FOR)));
 		setNetworkImageView(viewHolder.author_image, cursor.getString(cursor.getColumnIndex(Person.IMAGE_ID)));
