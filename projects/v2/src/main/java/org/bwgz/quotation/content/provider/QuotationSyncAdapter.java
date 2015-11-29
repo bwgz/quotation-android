@@ -249,10 +249,12 @@ public class QuotationSyncAdapter extends AbstractThreadedSyncAdapter {
 	
 	private List<TopicValue> getPropertyValues(Property property, String name) {
 		List<TopicValue> values = null;
-		
-		TopicPropertyValue topicPropertyValue = (TopicPropertyValue) property.get(name);
-		if (topicPropertyValue != null) {
-			values = topicPropertyValue.getValues();
+
+		if (property != null) {
+			TopicPropertyValue topicPropertyValue = (TopicPropertyValue) property.get(name);
+			if (topicPropertyValue != null) {
+				values = topicPropertyValue.getValues();
+			}
 		}
 		
 		return values;

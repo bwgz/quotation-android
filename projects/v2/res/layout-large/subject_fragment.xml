@@ -17,7 +17,7 @@
 
             <com.android.volley.toolbox.NetworkImageView
                 android:id="@+id/subject_image"
-		        android:layout_width="wrap_content"
+		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:paddingRight="4dp"
                 android:visibility="gone" />

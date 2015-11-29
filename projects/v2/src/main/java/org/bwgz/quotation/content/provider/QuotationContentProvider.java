@@ -35,6 +35,7 @@ import org.bwgz.quotation.content.provider.QuotationContract.Subject;
 import org.bwgz.quotation.content.provider.QuotationContract.BookmarkSubject;
 import org.bwgz.quotation.content.provider.QuotationContract.SubjectQuotation;
 
+import android.accounts.Account;
 import android.content.ContentProvider;
 import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
@@ -445,7 +446,7 @@ public class QuotationContentProvider extends ContentProvider {
 	        extras.putBoolean(ContentResolver.SYNC_EXTRAS_MANUAL, true);
 	        extras.putString(QuotationSyncAdapter.SYNC_EXTRA_URI, uri.toString());
 	        
-			ContentResolver.requestSync(new QuotationAccount(), QuotationContract.AUTHORITY, extras);
+			ContentResolver.requestSync(new Account(QuotationAccount.NAME, QuotationAccount.TYPE), QuotationContract.AUTHORITY, extras);
 		}
 		
 	    return cursor;

@@ -53,7 +53,7 @@ public class QuotationApplication extends Application {
 		AccountManager accountManager = AccountManager.get(context);
 		
 		if (!hasQuotationAccount(accountManager)) {
-	        Account account = new QuotationAccount();
+	        Account account = new Account(QuotationAccount.NAME, QuotationAccount.TYPE);
 	        
 	        if (accountManager.addAccountExplicitly(account, null, null)) {
 	        	Log.i(TAG, String.format("added account %s", account.name));

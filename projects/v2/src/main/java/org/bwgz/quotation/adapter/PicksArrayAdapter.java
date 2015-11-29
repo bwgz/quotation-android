@@ -70,7 +70,13 @@ public abstract class PicksArrayAdapter extends ArrayAdapter<Pick> {
 		this.imageLoader = imageLoader;
 	}
 
-	protected void setTextView(TextView view, String value) {
+    protected void setTextView(TextView view, int resId) {
+        if (view != null) {
+            view.setText(resId);
+        }
+    }
+
+    protected void setTextView(TextView view, String value) {
         if (view != null) {
         	view.setText(value != null ? value : new String());
         }

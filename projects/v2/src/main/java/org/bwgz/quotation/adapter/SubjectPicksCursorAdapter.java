@@ -65,7 +65,11 @@ public class SubjectPicksCursorAdapter extends PicksCursorAdapter {
 		viewHolder.bookmark = (CheckBox) view.findViewById(R.id.bookmark);
 		view.setTag(viewHolder);
 
-		return view;
+        if (viewHolder.subject_image != null) {
+            viewHolder.subject_image.setDefaultImageResId(R.drawable.pick_image_holder);
+        }
+
+        return view;
 	}
 	
 	@Override
@@ -80,10 +84,6 @@ public class SubjectPicksCursorAdapter extends PicksCursorAdapter {
             viewHolder.bookmark.setOnClickListener(new BookmarkOnClickListener(context, BookmarkSubject.withAppendedId(id), BookmarkSubject.BOOKMARK_ID, id));
         }
 
-        if (viewHolder.subject_image != null) {
-            viewHolder.subject_image.setImageResource(R.drawable.pick_image_holder);
-            viewHolder.subject_image.setDefaultImageResId(R.drawable.pick_image_holder);
-        }
 		setTextView(viewHolder.subject_name, cursor.getString(cursor.getColumnIndex(Subject.NAME)));
 		setTextView(viewHolder.subject_description, cursor.getString(cursor.getColumnIndex(Subject.DESCRIPTION)));
 		setNetworkImageView(viewHolder.subject_image, cursor.getString(cursor.getColumnIndex(Subject.IMAGE_ID)));

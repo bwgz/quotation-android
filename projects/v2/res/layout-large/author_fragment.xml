@@ -17,7 +17,7 @@
 
             <com.android.volley.toolbox.NetworkImageView
                 android:id="@+id/author_image"
-		        android:layout_width="wrap_content"
+		        android:layout_width="match_parent"
 		        android:layout_height="wrap_content"
 		        android:paddingRight="4dp"
                 android:visibility="gone" />
@@ -111,15 +111,24 @@
 				        android:layout_alignParentTop="true"
 			            android:fontFamily="sans-serif"
 			            android:textSize="14sp" />
-			
-			        <ImageView
-			            android:layout_width="wrap_content"
-			            android:layout_height="wrap_content"
-			            android:layout_alignParentBottom="true"
-			            android:layout_alignParentRight="true"
-			            android:layout_below="@id/author_description_full"
-			            android:gravity="right"
-			            android:src="@drawable/ic_action_collapse" />
+
+                    <TextView
+                        android:id="@+id/author_description_citation_full"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/author_description_full"
+                        android:fontFamily="sans-serif"
+                        android:textSize="14sp"
+                        android:visibility="gone"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@id/author_description_citation_full"
+                        android:gravity="right"
+                        android:src="@drawable/ic_action_collapse" />
 			        
 			    </RelativeLayout>
 
