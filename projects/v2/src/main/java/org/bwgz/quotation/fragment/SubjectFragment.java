@@ -128,11 +128,11 @@ public class SubjectFragment extends PickFragment implements CursorLoaderListene
 		viewHolder.subject_description_layout = (LinearLayout) view.findViewById(R.id.subject_description_layout);
 		viewHolder.subject_description_layout_short = (RelativeLayout) view.findViewById(R.id.subject_description_layout_short);
 		viewHolder.subject_description_layout_full = (RelativeLayout) view.findViewById(R.id.subject_description_layout_full);
+		viewHolder.subject_description_short.setOnClickListener(toggleDescription);
+		viewHolder.subject_description_full.setOnClickListener(toggleDescription);
 		viewHolder.quotation_grid = (GridView) view.findViewById(R.id.quotations);
 
-        viewHolder.subject_description_layout.setOnClickListener(new ViewToggleOnClickListener(viewHolder.subject_description_layout_short, viewHolder.subject_description_layout_full));
-
-        GridView gridView = viewHolder.quotation_grid;
+		GridView gridView = viewHolder.quotation_grid;
 		gridView.setOnItemClickListener(new GridViewOnItemClickListener(gridView));
 		gridView.setAdapter(new LoadingAdapter());
 
@@ -197,15 +197,21 @@ public class SubjectFragment extends PickFragment implements CursorLoaderListene
 		setTextView(viewHolder.subject_name, string);
 	}
 
-    private void setSubjectDescription(String text) {
-        if (text != null) {
-            text = text.trim();
-            setTextView(viewHolder.subject_description_short, text);
-            setTextView(viewHolder.subject_description_full, text);
-            View view = viewHolder.subject_description_layout;
-            view.setVisibility(View.VISIBLE);
-        }
-    }
+	private void setSubjectDescription(Spanned text) {
+		if (text != null) {
+			setTextView(viewHolder.subject_description_short, text);
+			setTextView(viewHolder.subject_description_full, text);
+			View view = viewHolder.subject_description_layout;
+			view.setVisibility(View.VISIBLE);
+		}
+	}
+
+	private void setSubjectDescription(String text) {
+		if (text != null) {
+			text = text.replace("\n", "<p>").trim();
+			setSubjectDescription(Html.fromHtml(text));
+		}
+	}
 
 	private void setSubjectImage(String value) {
 		Log.d(TAG, String.format("setAuthorImage - value: %s", value));

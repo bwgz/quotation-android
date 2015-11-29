@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.android.tools.build:gradle:0.9.0+'
     }
 }
 
@@ -23,7 +23,7 @@ dependencies {
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "23.0.2"
+    buildToolsVersion "19.0.3"
 
     sourceSets {
         main {
@@ -47,13 +47,13 @@ android {
 
 	buildTypes {
 		release {
-            minifyEnabled false
+            runProguard true
             proguardFile 'proguard.cfg'
             signingConfig signingConfigs.release
 		}
 	}
 
     task wrapper(type: Wrapper) {
-        gradleVersion = '2.8'
+        gradleVersion = '1.11'
     }
 }

@@ -115,9 +115,8 @@ public class QuotationPicksArrayAdapter extends PicksArrayAdapter {
 		
 		if (convertView != null) {
 			viewHolder = (ViewHolder) convertView.getTag();
-
-            setTextView(viewHolder.quotation_text, R.string.loading_quotation);
-			//setTextView(viewHolder.quotation_text, new String());
+			
+			setTextView(viewHolder.quotation_text, new String());
 			setTextView(viewHolder.author_name, new String());
 			setCheckBox(viewHolder.bookmark, false);		
 			

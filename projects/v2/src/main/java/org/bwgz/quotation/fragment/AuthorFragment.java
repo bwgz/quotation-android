@@ -37,7 +37,6 @@ import android.os.Bundle;
 import android.support.v4.content.Loader;
 import android.text.Html;
 import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -64,7 +63,6 @@ public class AuthorFragment extends PickFragment implements CursorLoaderListener
 	private class ViewHolder {
 		public NetworkImageView author_image;
 		public TextView author_name;
-        public TextView author_description_citation_full;
 		public TextView author_description_short;
 		public TextView author_description_full;
 		public TextView author_notable_for;
@@ -104,6 +102,18 @@ public class AuthorFragment extends PickFragment implements CursorLoaderListener
 		}
 	}
 	
+	private OnClickListener toggleDescription = new OnClickListener() {
+		@Override
+		public void onClick(View view) {
+			Log.d(TAG, String.format("onClick - view: %s", view));
+			RelativeLayout relativeLayout = viewHolder.author_description_layout_short;
+			relativeLayout.setVisibility(relativeLayout.isShown() ? View.GONE : View.VISIBLE );
+			
+			relativeLayout = viewHolder.author_description_layout_full;
+			relativeLayout.setVisibility(relativeLayout.isShown() ? View.GONE : View.VISIBLE );
+		}
+	};
+	
 	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
@@ -114,7 +124,6 @@ public class AuthorFragment extends PickFragment implements CursorLoaderListener
 		viewHolder = new ViewHolder();
 		viewHolder.author_name = (TextView) view.findViewById(R.id.author_name);
 		viewHolder.author_image = (NetworkImageView) view.findViewById(R.id.author_image);
-        viewHolder.author_description_citation_full = (TextView) view.findViewById(R.id.author_description_citation_full);
 		viewHolder.author_description_short = (TextView) view.findViewById(R.id.author_description_short);
 		viewHolder.author_description_full = (TextView) view.findViewById(R.id.author_description_full);
 		viewHolder.author_notable_for = (TextView) view.findViewById(R.id.author_notable_for);
@@ -123,11 +132,10 @@ public class AuthorFragment extends PickFragment implements CursorLoaderListener
 		viewHolder.author_description_layout_full = (RelativeLayout) view.findViewById(R.id.author_description_layout_full);
 		viewHolder.quotation_grid = (GridView) view.findViewById(R.id.quotations);
 
-        viewHolder.author_description_citation_full.setMovementMethod(LinkMovementMethod.getInstance());
-
-        viewHolder.author_description_layout.setOnClickListener(new ViewToggleOnClickListener(viewHolder.author_description_layout_short, viewHolder.author_description_layout_full));
-
-        GridView gridView = viewHolder.quotation_grid;
+		viewHolder.author_description_short.setOnClickListener(toggleDescription);
+		viewHolder.author_description_full.setOnClickListener(toggleDescription);
+        
+		GridView gridView = viewHolder.quotation_grid;
 		gridView.setOnItemClickListener(new GridViewOnItemClickListener(gridView));
 		gridView.setAdapter(new LoadingAdapter());
 
@@ -168,20 +176,22 @@ public class AuthorFragment extends PickFragment implements CursorLoaderListener
 			setAuthorNotableFor(cursor.getString(cursor.getColumnIndex(Person.NOTABLE_FOR)));
 			setAuthorImage(cursor.getString(cursor.getColumnIndex(Person.IMAGE_ID)));
 			setBookmarked(cursor.getString(cursor.getColumnIndex(BookmarkPerson.BOOKMARK_ID)) != null);
-
-            setAuthorDescription(cursor.getString(cursor.getColumnIndex(Person.DESCRIPTION)));
-
-            StringBuilder buffer = new StringBuilder();
-            String citation_provider = cursor.getString(cursor.getColumnIndex(Person.CITATION_PROVIDER));
-
-            if (citation_provider != null) {
-                String citation_statement = cursor.getString(cursor.getColumnIndex(Person.CITATION_STATEMENT));
-                String citation_uri = cursor.getString(cursor.getColumnIndex(Person.CITATION_URI));
-                buffer.append(" ");
-                buffer.append(generateCitation(citation_provider, citation_statement, citation_uri));
-            }
-
-            setAuthorDescriptionCitation(buffer.toString().trim().replace("\n", "<p>"));
+	        
+			String description = cursor.getString(cursor.getColumnIndex(Person.DESCRIPTION));
+			if (description != null) {
+				StringBuilder descriptionBuffer = new StringBuilder();
+	    		descriptionBuffer.append(description);
+	    		
+	    		String citation_provider = cursor.getString(cursor.getColumnIndex(Person.CITATION_PROVIDER));
+	    		if (citation_provider != null) {
+	        		String citation_statement = cursor.getString(cursor.getColumnIndex(Person.CITATION_STATEMENT));
+	        		String citation_uri = cursor.getString(cursor.getColumnIndex(Person.CITATION_URI));
+	    			descriptionBuffer.append(" ");
+	    			descriptionBuffer.append(generateCitation(citation_provider, citation_statement, citation_uri));
+	    		}
+	    		
+	    		setAuthorDescription(descriptionBuffer.toString());
+			}
 		}
 	}
 
@@ -205,23 +215,21 @@ public class AuthorFragment extends PickFragment implements CursorLoaderListener
 		setTextView(viewHolder.author_name, string);
 	}
 
-    private void setAuthorDescriptionCitation(String text) {
-        if (text != null) {
-            setTextView(viewHolder.author_description_citation_full, Html.fromHtml(text));
-            View view = getView().findViewById(R.id.author_description_citation_full);
-            view.setVisibility(View.VISIBLE);
-        }
-    }
+	private void setAuthorDescription(Spanned text) {
+		if (text != null) {
+			setTextView(viewHolder.author_description_short, text);
+			setTextView(viewHolder.author_description_full, text);
+			View view = viewHolder.author_description_layout;
+			view.setVisibility(View.VISIBLE);
+		}
+	}
 
-    private void setAuthorDescription(String text) {
-        if (text != null) {
-            text = text.trim();
-            setTextView(viewHolder.author_description_short, text);
-            setTextView(viewHolder.author_description_full, text);
-            View view = viewHolder.author_description_layout;
-            view.setVisibility(View.VISIBLE);
-        }
-    }
+	private void setAuthorDescription(String text) {
+		if (text != null) {
+			text = text.replace("\n", "<p>").trim();
+			setAuthorDescription(Html.fromHtml(text));
+		}
+	}
 
 	private void setAuthorNotableFor(String string) {
 		setTextView(viewHolder.author_notable_for, string);

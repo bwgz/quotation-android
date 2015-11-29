@@ -15,8 +15,8 @@
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="207"
-	android:versionName="2.0.7-BETA"
+    android:versionCode="202"
+	android:versionName="2.0.2-BETA"
 	package="org.bwgz.quotation">
     
     <uses-permission android:name="android.permission.INTERNET" />

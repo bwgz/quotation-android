@@ -31,8 +31,7 @@
             android:fontFamily="sans-serif-thin"
             android:maxLines="4"
             android:minLines="4"
-            android:textSize="18sp"
-            android:text="@string/loading_quotation" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/author_name"

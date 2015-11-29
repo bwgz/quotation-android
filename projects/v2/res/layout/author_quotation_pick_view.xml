@@ -26,8 +26,7 @@
 		    android:minLines="4"
 		    android:fontFamily="sans-serif-thin"
 		    android:textSize="18sp"
-			android:paddingRight="4dp"
-            android:text="@string/loading_quotation" />
+			android:paddingRight="4dp" />
 
         <CheckBox
             android:id="@+id/bookmark"
