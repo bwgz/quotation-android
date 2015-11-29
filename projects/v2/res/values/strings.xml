@@ -18,9 +18,9 @@
     <string name="small_widget_name">Quotation (Mini)</string>
     <string name="large_widget_name">Quotation (Full)</string>
     
-	<string name="loading_quotation">Loading quotation &#8230;</string>
-    <string name="loading_author">Loading author &#8230;</string>
-    <string name="loading_subject">Loading subject &#8230;</string>
+	<string name="loading_quotation">Loading quotation</string>
+    <string name="loading_author">Loading author</string>
+    <string name="loading_subject">Loading subject</string>
 
    	<string name="launch_message">One moment while we setup things.</string>
 	<string name="drawer_open">Open navigation drawer</string>
@@ -93,7 +93,7 @@
 	<string name="label_source">Source:</string>
 	<string name="label_spoken_by_character">Character:</string>
 		
-	<string name="no_results">No results</string>
+	<string name="no_results">Sorry! We didn\'t find anything for \"%1$s\".</string>
 
 	<string name="share">Share</string>
 

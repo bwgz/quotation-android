@@ -21,14 +21,22 @@ import java.util.List;
 import org.bwgz.quotation.model.picks.Pick;
 
 public class SearchResults {
+    private String query;
 	private List<Pick> picks;
 	private BigDecimal hits;
 	
-	public SearchResults(BigDecimal hits, List<Pick> picks) {
+	public SearchResults(String query, BigDecimal hits, List<Pick> picks) {
+        this.query = query;
 		this.hits = hits;
 		this.picks = picks;
 	}
-	public List<Pick> getPicks() {
+    public String getQuery() {
+        return query;
+    }
+    public void setQuery(String query) {
+        this.query = query;
+    }
+    public List<Pick> getPicks() {
 		return picks;
 	}
 	public void setPicks(List<Pick> picks) {

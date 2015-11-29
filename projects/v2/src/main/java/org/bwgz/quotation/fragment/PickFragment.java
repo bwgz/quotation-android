@@ -26,6 +26,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -43,7 +44,27 @@ public abstract class PickFragment extends CursorLoaderManagerFragment {
 	private boolean bookmarked;
 
 	abstract protected String getTrackerCategory();
-	
+
+    protected class ViewToggleOnClickListener implements OnClickListener {
+        public final String TAG = ViewToggleOnClickListener.class.getSimpleName();
+        private final View one;
+        private final View two;
+
+        public ViewToggleOnClickListener(View one, View two) {
+            this.one = one;
+            this.two = two;
+        }
+        private void toggle(View view) {
+            view.setVisibility(view.isShown() ? View.GONE : View.VISIBLE);
+        }
+        @Override
+        public void onClick(View view) {
+            Log.d(TAG, String.format("onClick - view: %s", view));
+            toggle(one);
+            toggle(two);
+        }
+    }
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

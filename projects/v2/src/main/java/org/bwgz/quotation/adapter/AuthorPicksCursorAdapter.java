@@ -53,7 +53,11 @@ public class AuthorPicksCursorAdapter extends PicksCursorAdapter {
 		viewHolder.bookmark = (CheckBox) view.findViewById(R.id.bookmark);
 		view.setTag(viewHolder);
 
-		return view;
+        if (viewHolder.author_image != null) {
+            viewHolder.author_image.setDefaultImageResId(R.drawable.pick_image_holder);
+        }
+
+        return view;
 	}
 	
 	@Override
@@ -65,11 +69,6 @@ public class AuthorPicksCursorAdapter extends PicksCursorAdapter {
         if (viewHolder.bookmark != null) {
             String id = cursor.getString(cursor.getColumnIndex(Person._ID));
             viewHolder.bookmark.setOnClickListener(new BookmarkOnClickListener(context, BookmarkPerson.withAppendedId(id), BookmarkPerson.BOOKMARK_ID, id));
-        }
-
-        if (viewHolder.author_image != null) {
-            viewHolder.author_image.setImageResource(R.drawable.pick_image_holder);
-            viewHolder.author_image.setDefaultImageResId(R.drawable.pick_image_holder);
         }
 
         setTextView(viewHolder.author_name, cursor.getString(cursor.getColumnIndex(Person.NAME)));

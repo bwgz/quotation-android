@@ -1,0 +1,101 @@
+<!-- 
+	Copyright (C) 2014 bwgz.org
+	
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License version 3 as 
+	published by the Free Software Foundation.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+--><resources>
+    <string name="application_name">"Quotation"</string>
+    <string name="small_widget_name">"Quotation (Mini)"</string>
+    <string name="large_widget_name">"Quotation (Plein)"</string>
+    
+	<string name="loading_quotation">"Chargement citation"</string>
+    <string name="loading_author">"Chargement auteur"</string>
+    <string name="loading_subject">"Chargement sujet"</string>
+
+   	<string name="launch_message">"Un moment pendant que nousfaisons les préparations."</string>
+	<string name="drawer_open">"Ouvrir le tiroir de navigation"</string>
+    <string name="drawer_close">"Fermer le tiroir de navigation."</string>
+
+	<string name="menu_search">"Recherche"</string>
+	<string name="menu_settings">"Paramètres"</string>
+			
+	<string name="navigation_quotations">"CITATIONS"</string>
+	<string name="navigation_authors">"AUTEURS"</string>
+	<string name="navigation_subjects">"SUJETS"</string>
+
+	<string name="title_settings">"Paramètres"</string>
+	<string name="title_about">"À propos"</string>
+	<string name="title_version">"Version"</string>
+	<string name="title_legal">"Légales"</string>
+	<string name="title_attribution">"Attribution"</string>
+	<string name="title_terms_of_use">"Conditions d'Utilisation"</string>
+	<string name="title_environment">"Environnement"</string>
+			
+	<string-array name="home_drawer">
+        <item>"Maison"</item>
+	    <item>"Mes citations signets"</item>
+	</string-array>
+
+	<string-array name="quotations_drawer">
+        <item>"Maison"</item>
+	    <item>"Citations"</item>
+	</string-array>
+	
+	<string-array name="authors_drawer">
+        <item>"Maison"</item>
+	    <item>"Auteurs"</item>
+	</string-array>
+
+	<string-array name="subjects_drawer">
+        <item>"Maison"</item>
+	    <item>"Sujets"</item>
+	</string-array>
+	
+	<string name="see_more">"VOIR PLUS"</string>
+	
+	<string name="quotation_picks_title">"Choix de citation"</string>
+	<string name="quotation_picks_subtitle">"Citation Sampler"</string>
+
+	<string name="author_picks_title">"Choix d'auteur"</string>
+	<string name="author_picks_subtitle">"Auteur Sampler"</string>
+				
+	<string name="subject_picks_title">"Choix de sujet"</string>
+	<string name="subject_picks_subtitle">"Sujet Sampler"</string>
+			
+    <string name="quotations_title">"Citations"</string>
+    <string name="authors_title">"Auteurs"</string>
+	<string name="subjects_title">"Sujets"</string>
+
+	<string name="quotation_title">"Quotation"</string>
+    <string name="author_title">"Auteur"</string>
+	<string name="subject_title">"Objet"</string>
+		
+    <string name="title_home">"Accueil"</string>
+    <string name="title_random">"Aléatoire"</string>
+    <string name="title_bookmarks">"Signets"</string>
+    
+	<string name="search_keyword">"Par mote-clé"</string>
+	<string name="search_author">"Par auteur"</string>
+	<string name="search_subject">"Par sujet"</string>
+        
+	<string name="search_results_label">"Résultats"</string>
+    
+	<string name="label_source">"Source:"</string>
+	<string name="label_spoken_by_character">"Caractère:"</string>
+		
+	<string name="no_results">"Pas de résultats"</string>
+
+	<string name="share">"Partager"</string>
+
+    <string name="bookmark">"Signet"</string>
+
+</resources>

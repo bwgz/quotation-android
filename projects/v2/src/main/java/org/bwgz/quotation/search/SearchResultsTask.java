@@ -31,8 +31,10 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.api.client.json.GenericJson;
@@ -62,7 +64,7 @@ public class SearchResultsTask extends AsyncTask<Intent, Integer, SearchResults>
         progressDialog.setMessage("Searching ...");
         progressDialog.setCancelable(false);
         progressDialog.setIndeterminate(true);
-        //progressDialog.show();
+        progressDialog.show();
     }
 
 	@Override
@@ -120,7 +122,7 @@ public class SearchResultsTask extends AsyncTask<Intent, Integer, SearchResults>
 			Log.e(TAG, e.getLocalizedMessage());
 		}
 
-		return new SearchResults(hits, picks);
+		return new SearchResults(query, hits, picks);
 	}
 	
 	@Override
@@ -132,5 +134,21 @@ public class SearchResultsTask extends AsyncTask<Intent, Integer, SearchResults>
 		
 		TextView textView = (TextView) activity.findViewById(R.id.result_count);
 		textView.setText(String.valueOf(adapter.getCount()));
+
+        TextView tv = (TextView) activity.findViewById(R.id.text_view);
+        ListView lv = (ListView) activity.findViewById(R.id.result_list);
+
+        if (adapter.getCount() == 0) {
+            Resources resources = tv.getResources();
+            String text = String.format(resources.getString(R.string.no_results), results.getQuery());
+            tv.setText(text);
+
+            tv.setVisibility(tv.VISIBLE);
+            lv.setVisibility(lv.GONE);
+        }
+        else {
+            tv.setVisibility(tv.GONE);
+            lv.setVisibility(lv.VISIBLE);
+        }
 	}
 }

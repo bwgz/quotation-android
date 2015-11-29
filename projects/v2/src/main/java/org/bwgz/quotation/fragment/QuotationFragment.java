@@ -29,6 +29,7 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.content.Loader;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -64,18 +65,6 @@ public class QuotationFragment extends PickFragment implements CursorLoaderListe
 		public RelativeLayout author_description_layout_full;
 	}
 
-	private OnClickListener toggleDescription = new OnClickListener() {
-		@Override
-		public void onClick(View view) {
-			Log.d(TAG, String.format("onClick - view: %s", view));
-			RelativeLayout relativeLayout = viewHolder.author_description_layout_short;
-			relativeLayout.setVisibility(relativeLayout.isShown() ? View.GONE : View.VISIBLE );
-			
-			relativeLayout = viewHolder.author_description_layout_full;
-			relativeLayout.setVisibility(relativeLayout.isShown() ? View.GONE : View.VISIBLE );
-		}
-	};
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
@@ -102,8 +91,10 @@ public class QuotationFragment extends PickFragment implements CursorLoaderListe
 		viewHolder.author_description_layout = (LinearLayout) view.findViewById(R.id.author_description_layout);
 		viewHolder.author_description_layout_short = (RelativeLayout) view.findViewById(R.id.author_description_layout_short);
 		viewHolder.author_description_layout_full = (RelativeLayout) view.findViewById(R.id.author_description_layout_full);
-		
-		viewHolder.author_description_layout.setOnClickListener(toggleDescription);
+
+        viewHolder.author_description_citation_full.setMovementMethod(LinkMovementMethod.getInstance());
+
+        viewHolder.author_description_layout.setOnClickListener(new ViewToggleOnClickListener(viewHolder.author_description_layout_short, viewHolder.author_description_layout_full));
 		
 		if (viewHolder.author_image != null) {
 			viewHolder.author_image.setDefaultImageResId(R.drawable.pick_image_holder);

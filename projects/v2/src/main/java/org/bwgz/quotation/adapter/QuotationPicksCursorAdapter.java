@@ -72,8 +72,12 @@ public class QuotationPicksCursorAdapter extends PicksCursorAdapter {
 		viewHolder.author_image = (NetworkImageView) view.findViewById(R.id.author_image);
 		viewHolder.bookmark = (CheckBox) view.findViewById(R.id.bookmark);
 		view.setTag(viewHolder);
-		
-		return view;
+
+        if (viewHolder.author_image != null) {
+            viewHolder.author_image.setDefaultImageResId(R.drawable.pick_image_holder);
+        }
+
+        return view;
 	}
 
 	@Override
@@ -85,11 +89,6 @@ public class QuotationPicksCursorAdapter extends PicksCursorAdapter {
         if (viewHolder.bookmark != null) {
             String id = cursor.getString(cursor.getColumnIndex(Quotation._ID));
             viewHolder.bookmark.setOnClickListener(new BookmarkOnClickListener(context, BookmarkQuotation.withAppendedId(id), BookmarkQuotation.BOOKMARK_ID, id));
-        }
-
-        if (viewHolder.author_image != null) {
-            viewHolder.author_image.setImageResource(R.drawable.pick_image_holder);
-            viewHolder.author_image.setDefaultImageResId(R.drawable.pick_image_holder);
         }
 
         setTextView(viewHolder.quotation_text, cursor.getString(cursor.getColumnIndex(Quotation.QUOTATION)));
